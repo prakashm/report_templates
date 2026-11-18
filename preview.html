@@ -3,335 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Release Desk — Themes & Focus</title>
+<title>Release Desk — Category Colors</title>
 <style>
-:root{
-  --bg:#f3f5fa;--panel:#fff;--surface:#f7f9fd;--ink:#1c2941;--muted:#738098;
-  --line:#e3e8f2;--accent:#536be8;--accent-soft:#edf0ff;--accent-text:#fff;
-  --green:#16836a;--green-bg:#e4f5ee;--amber:#a47113;--amber-bg:#fff4da;
-  --red:#c44860;--red-bg:#ffedf1;--purple:#7952ba;--purple-bg:#f0eaff;
-  --shadow:0 5px 20px #26344c05;--radius:15px;--cell-y:13px;--control-y:9px;
-  color-scheme:light;
-}
-[data-theme="midnight"]{
-  --bg:#0d1424;--panel:#151f33;--surface:#1b2940;--ink:#e4ebfa;--muted:#98a9c5;
-  --line:#2c3b55;--accent:#9aaaff;--accent-soft:#293758;--accent-text:#101a32;
-  --green:#78dabb;--green-bg:#1b3a35;--amber:#f1cc80;--amber-bg:#3d3423;
-  --red:#ff9fb1;--red-bg:#402637;--purple:#c4a5fa;--purple-bg:#332c4b;
-  --shadow:0 5px 25px #0002;color-scheme:dark;
-}
-[data-theme="forest"]{
-  --bg:#eef3ef;--panel:#fcfefb;--surface:#f1f6ef;--ink:#263d30;--muted:#6c8072;
-  --line:#d9e5d8;--accent:#357557;--accent-soft:#e1efe4;--accent-text:#fff;
-  --green:#22764c;--green-bg:#dcefe1;--amber:#96701b;--amber-bg:#f9efd3;
-  --red:#b8565a;--red-bg:#f9e8e7;--purple:#786198;--purple-bg:#eee7f4;
-}
-[data-theme="rose"]{
-  --bg:#fbf2f5;--panel:#fffdfd;--surface:#fcf5f8;--ink:#4d2a40;--muted:#9b7c8d;
-  --line:#eedce5;--accent:#ab4c78;--accent-soft:#f9e7ef;--accent-text:#fff;
-  --green:#267c6c;--green-bg:#e2f3ed;--amber:#a27820;--amber-bg:#fcf0d8;
-  --red:#c34666;--red-bg:#ffe8ef;--purple:#8d59a8;--purple-bg:#f2e7f8;
-}
-[data-theme="sand"]{
-  --bg:#f4f0e8;--panel:#fffdf8;--surface:#f7f3eb;--ink:#42382c;--muted:#8d806e;
-  --line:#e6ddcc;--accent:#946622;--accent-soft:#f3e8d2;--accent-text:#fff;
-  --green:#4b7d4a;--green-bg:#e9efdf;--amber:#93681a;--amber-bg:#faedcb;
-  --red:#b45b48;--red-bg:#f8e7df;--purple:#84618f;--purple-bg:#efe6ef;
-}
-[data-theme="contrast"]{
-  --bg:#000;--panel:#090909;--surface:#161616;--ink:#fff;--muted:#ddd;
-  --line:#9b9b9b;--accent:#ffdd49;--accent-soft:#332b00;--accent-text:#000;
-  --green:#9bffc5;--green-bg:#06331a;--amber:#ffe27d;--amber-bg:#392d00;
-  --red:#ffafc0;--red-bg:#3d0915;--purple:#e0baff;--purple-bg:#290e3c;
-  color-scheme:dark;
-}
-[data-style="flat"]{--radius:5px;--shadow:none}
-[data-style="outline"]{--shadow:none}
-[data-style="outline"] .panel,[data-style="outline"] .card{border-width:2px}
-[data-style="soft"] .card,[data-style="soft"] .panel{box-shadow:var(--shadow)}
-[data-density="compact"]{--cell-y:7px;--control-y:6px}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:14px system-ui,-apple-system,"Segoe UI",sans-serif;transition:background .2s,color .2s}
-button,input,select,textarea{font:inherit;color:inherit}
-button,input,select,textarea{border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:var(--control-y) 11px}
-button{cursor:pointer;font-weight:600}
-button:hover{border-color:var(--accent);background:var(--accent-soft)}
-button:disabled{opacity:.4;cursor:default}
-button.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-text)}
-button:focus-visible,input:focus,select:focus,textarea:focus,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-input[type="checkbox"]{accent-color:var(--accent)}
-textarea{resize:vertical}
-.muted,.note,.subtitle{color:var(--muted)}
-.small{font-size:12px}
-.note{font-size:12px;line-height:1.65}
-.hidden{display:none!important}
-.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.appbar{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:15px 28px;background:var(--panel);border-bottom:1px solid var(--line)}
-.brand{display:flex;gap:10px;align-items:center;font-size:19px;font-weight:750;letter-spacing:-.5px}
-.logo{background:var(--accent);color:var(--accent-text);padding:5px 10px;border-radius:10px;font-size:23px}
-.tag{font-size:9px;letter-spacing:1.4px;border-radius:5px;background:var(--accent-soft);color:var(--accent);padding:5px 7px}
-main{max-width:1800px;padding:24px 28px;margin:auto}
-.heading{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:4px 0 23px}
-h1{font-size:29px;letter-spacing:-1px;margin:0 0 6px}h2,h3{margin:0;font-size:15px}
-.subtitle{margin:0;line-height:1.6;font-size:13px}
-.section{margin-bottom:17px}
-summary{list-style:none;cursor:pointer;user-select:none}
-summary::-webkit-details-marker{display:none}
-.section-summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:5px 1px 12px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
-.section-summary .section-right{font-weight:400;text-transform:none;letter-spacing:0;display:flex;gap:10px;align-items:center}
-.chev{display:inline-block;transition:transform .18s;font-size:12px}
-details:not([open])>summary .chev{transform:rotate(-90deg)}
-details:not([open]).section>summary{padding-bottom:3px}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
-.panel,.card{border:1px solid var(--line);background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow)}
-.card{padding:18px 21px;position:relative;overflow:hidden}
-.card:before{content:"";position:absolute;left:0;top:20px;bottom:20px;width:3px;background:var(--kpi-color,var(--accent));border-radius:3px}
-.card .label{color:var(--muted);font-size:12px;font-weight:600}
-.card .number{font-size:33px;letter-spacing:-1px;font-weight:750;margin:7px 0;color:var(--kpi-color,var(--ink))}
-.card .foot{font-size:11px;color:var(--muted)}
-.charts{display:grid;grid-template-columns:1fr 1.35fr;gap:17px}
-.paneltop{display:flex;justify-content:space-between;align-items:center;padding:17px 19px;border-bottom:1px solid var(--line);gap:10px}
-.chart{padding:10px 18px}
-.chart svg{display:block;width:100%;height:185px}
-.iconbtn{padding:6px 9px;font-size:11px}
-.paneltop .note{font-size:11px}
-#register{overflow:hidden;position:relative}
-.registerbar{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;gap:10px;border-bottom:1px solid var(--line)}
-.registertitle{display:flex;gap:9px;align-items:center}
-.badge{display:inline-block;border-radius:5px;background:var(--surface);color:var(--muted);padding:4px 8px;font-size:10px;font-weight:650;white-space:nowrap}
+:root{--bg:#f3f5fa;--panel:#fff;--surface:#f7f9fd;--ink:#1c2941;--muted:#738098;--line:#e3e8f2;--accent:#536be8;--soft:#edf0ff;--accent-text:#fff;--green:#16836a;--green-bg:#e4f5ee;--amber:#a47113;--amber-bg:#fff4da;--red:#c44860;--red-bg:#ffedf1;--purple:#7952ba;--purple-bg:#f0eaff;--radius:14px;--shadow:0 5px 20px #26344c05;--cell-y:12px;--control-y:8px;color-scheme:light}
+[data-theme=midnight]{--bg:#0d1424;--panel:#151f33;--surface:#1b2940;--ink:#e4ebfa;--muted:#a1b1ca;--line:#2c3b55;--accent:#a1b1ff;--soft:#293758;--accent-text:#101a32;--green:#78dabb;--green-bg:#1b3a35;--amber:#f1cc80;--amber-bg:#3d3423;--red:#ff9fb1;--red-bg:#402637;--purple:#c4a5fa;--purple-bg:#332c4b;color-scheme:dark}
+[data-theme=forest]{--bg:#eef3ef;--panel:#fcfefb;--surface:#f1f6ef;--ink:#263d30;--muted:#6c8072;--line:#d9e5d8;--accent:#357557;--soft:#e1efe4}
+[data-theme=rose]{--bg:#fbf2f5;--panel:#fffdfd;--surface:#fcf5f8;--ink:#4d2a40;--muted:#927082;--line:#eedce5;--accent:#ab4c78;--soft:#f9e7ef}
+[data-theme=sand]{--bg:#f4f0e8;--panel:#fffdf8;--surface:#f7f3eb;--ink:#42382c;--muted:#887a67;--line:#e6ddcc;--accent:#946622;--soft:#f3e8d2}
+[data-theme=contrast]{--bg:#000;--panel:#090909;--surface:#161616;--ink:#fff;--muted:#ddd;--line:#999;--accent:#ffdd49;--soft:#332b00;--accent-text:#000;--green:#9bffc5;--green-bg:#06331a;--amber:#ffe27d;--amber-bg:#392d00;--red:#ffafc0;--red-bg:#3d0915;--purple:#e0baff;--purple-bg:#290e3c;color-scheme:dark}
+[data-style=flat]{--radius:4px;--shadow:none}[data-style=outline]{--shadow:none}[data-style=outline] .panel,[data-style=outline] .card{border-width:2px}
+[data-density=compact]{--cell-y:6px;--control-y:5px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input,select,textarea{font:inherit;color:inherit;border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:var(--control-y) 10px}
+button{cursor:pointer;font-weight:600}button:hover{border-color:var(--accent);background:var(--soft)}button:disabled{opacity:.45;cursor:default}
+button.primary{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+button:focus-visible,input:focus,select:focus,textarea:focus,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+input[type=checkbox]{accent-color:var(--accent)}textarea{resize:vertical}input:disabled,select:disabled,textarea:disabled{opacity:.8;background:var(--surface)}
+input[readonly],textarea[readonly]{background:var(--surface)}.hidden{display:none!important}.muted,.note,.subtitle{color:var(--muted)}.small{font-size:12px}.note{font-size:12px;line-height:1.65}
+.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.appbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 26px;background:var(--panel);border-bottom:1px solid var(--line)}
+.brand{display:flex;gap:10px;align-items:center;font-size:19px;font-weight:750;letter-spacing:-.5px}.logo{padding:5px 10px;font-size:23px;border-radius:10px;background:var(--accent);color:var(--accent-text)}
+.tag{font-size:9px;letter-spacing:1px;background:var(--soft);color:var(--accent);padding:5px 7px;border-radius:5px}
+main{max-width:1850px;margin:auto;padding:24px 26px}.heading{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:3px 0 22px}h1{font-size:29px;letter-spacing:-1px;margin:0 0 6px}h2,h3{margin:0;font-size:15px}.subtitle{margin:0;line-height:1.65;font-size:13px}
+.section{margin-bottom:17px}summary{list-style:none;cursor:pointer;user-select:none}summary::-webkit-details-marker{display:none}
+.section-summary{display:flex;justify-content:space-between;align-items:center;padding:5px 1px 11px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.section-summary .right{font-weight:400;text-transform:none;letter-spacing:0}.chev{display:inline-block}details:not([open])>summary .chev{transform:rotate(-90deg)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.panel,.card{border:1px solid var(--line);background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow)}
+.card{padding:17px 21px;position:relative;overflow:hidden}.card:before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;background:var(--kpi);border-radius:3px}
+.card .label{font-size:12px;color:var(--muted);font-weight:600}.card .number{font-size:32px;font-weight:750;letter-spacing:-1px;margin:7px 0;color:var(--kpi)}.card .foot{font-size:11px;color:var(--muted)}
+.charts{display:grid;grid-template-columns:1fr 1.35fr;gap:17px}.paneltop{display:flex;justify-content:space-between;align-items:center;padding:16px 19px;border-bottom:1px solid var(--line);gap:10px}
+.chart{padding:10px 18px}.chart svg{width:100%;height:185px;display:block}.iconbtn{padding:5px 8px;font-size:11px}
+#register{overflow:hidden;position:relative}.registerbar{display:flex;justify-content:space-between;align-items:center;padding:13px 17px;border-bottom:1px solid var(--line);gap:10px}
+.registertitle{display:flex;gap:9px;align-items:center}.badge{display:inline-block;border-radius:5px;background:var(--surface);color:var(--muted);padding:4px 8px;font-size:10px;font-weight:650;white-space:nowrap}
 .badge.good{color:var(--green);background:var(--green-bg)}.badge.bad{color:var(--red);background:var(--red-bg)}.badge.warn{color:var(--amber);background:var(--amber-bg)}.badge.purple{color:var(--purple);background:var(--purple-bg)}
-.segments{display:flex;gap:3px;background:var(--surface);padding:3px;border-radius:8px}
-.segments button{background:transparent;border:1px solid transparent;padding:6px 11px;font-size:12px}
-.segments button.active{background:var(--panel);border-color:var(--line);color:var(--accent);box-shadow:0 2px 5px #00000005}
-.filter-summary{padding:10px 18px;background:var(--surface);display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);border-bottom:1px solid var(--line)}
-.filterbar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:13px 18px;border-bottom:1px solid var(--line)}
-.search{flex:1;min-width:200px}
-.filterbar select{max-width:185px}
-.advanced{padding:0 18px 12px;border-bottom:1px solid var(--line)}
-.filterrow{display:flex;gap:7px;margin:8px 0}
-.filterrow>*{min-width:0}
-.filtervalue{flex:1}
-.filtervalue>*{width:100%}
-.viewhint{padding:9px 18px;font-size:11px;color:var(--muted);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px}
-.tablewrap{overflow:auto;max-height:535px}
-table{border-collapse:separate;border-spacing:0;text-align:left;width:100%;font-size:12px}
-th{background:var(--surface);position:sticky;top:0;z-index:2;white-space:nowrap;border-bottom:1px solid var(--line)}
-th button{width:100%;border:0;border-radius:0;background:transparent;text-align:left;padding:12px 14px;font-size:11px;color:var(--muted);white-space:nowrap}
-td{padding:var(--cell-y) 14px;border-bottom:1px solid var(--line);max-width:330px;min-width:120px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-td.titlecell{font-weight:650;min-width:220px}
-td.action{width:62px;min-width:62px}
-tr:hover td{background:var(--accent-soft)}
-[data-zebra="true"] #grid tbody tr:nth-child(even) td{background:var(--surface)}
-[data-zebra="true"] #grid tbody tr:hover td{background:var(--accent-soft)}
-[data-wrap="true"] #grid td{white-space:normal;min-width:150px;overflow-wrap:anywhere}
-td input,td select,td textarea{width:100%;min-width:125px;max-width:300px;padding:6px}
-.footer{display:flex;justify-content:space-between;align-items:center;padding:11px 18px;font-size:11px;color:var(--muted);gap:10px;border-top:1px solid var(--line)}
-.empty{text-align:center;padding:40px!important;color:var(--muted)}
-.item{padding:22px}
-.itemhead{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-bottom:24px}
-.itemhead h3{font-size:20px;margin-bottom:8px;letter-spacing:-.4px}
-.formgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.field{display:flex;flex-direction:column;gap:7px;min-width:0}
-.field label{font-size:12px;color:var(--muted);font-weight:600}
-.field input,.field select,.field textarea{width:100%}
-.field textarea{min-height:95px}
-.wide{grid-column:1/-1}
-.bottomnote{display:flex;justify-content:space-between;gap:12px;padding:17px 1px;font-size:11px;color:var(--muted)}
-dialog{width:min(1060px,95vw);padding:0;border:1px solid var(--line);border-radius:16px;background:var(--panel);color:var(--ink);box-shadow:0 25px 100px #0005;max-height:92dvh}
-dialog::backdrop{background:#0c142b80;backdrop-filter:blur(5px)}
-.modalhead{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--line);gap:12px}
-.modalhead h3{font-size:18px;margin-bottom:4px}
-.modalbody{padding:20px 24px;overflow:auto;max-height:68dvh}
-.modalfoot{padding:15px 24px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap}
-.configtable td{padding:7px;overflow:visible;min-width:70px}
-.configtable th{position:static;padding:9px;font-size:11px;color:var(--muted)}
-.configtable input,.configtable select{width:100%;min-width:85px;padding:7px;font-size:12px}
-.configtable td:first-child{min-width:175px}
-.configtable .tiny{padding:5px;min-width:27px}
-.notice{background:var(--accent-soft);color:var(--accent);padding:12px 15px;border-radius:9px;line-height:1.7;font-size:12px;margin-bottom:17px}
-.error{color:var(--red);font-size:12px;white-space:pre-wrap;margin-top:12px}
-.danger{color:var(--red)}
-.importdrop{border:2px dashed var(--line);border-radius:12px;padding:25px;text-align:center;background:var(--surface);cursor:pointer;margin-bottom:18px}
-.importdrop:hover{border-color:var(--accent)}
-.exportgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
-.exportgrid button{text-align:left;padding:17px}
-.exportgrid small{display:block;color:var(--muted);font-weight:400;margin-top:6px}
-.appearance-heading{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:22px 0 11px;font-weight:700}
-.appearance-heading:first-child{margin-top:0}
-.theme-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
-.theme-choice{padding:10px;text-align:left;border:2px solid var(--line);position:relative}
-.theme-choice.active{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
-.theme-choice .theme-name{font-size:12px;margin-top:9px;display:flex;justify-content:space-between}
-.swatch{height:57px;border-radius:6px;display:flex;padding:7px;gap:5px;background:var(--sw-bg)}
-.swatch-sidebar{width:14px;background:var(--sw-accent);border-radius:3px}
-.swatch-content{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
-.swatch-content span{background:var(--sw-panel);border:1px solid var(--sw-line);border-radius:3px}
-.swatch-content span:last-child{grid-column:1/-1}
-.setting-row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
-.setting-row .note{margin-top:3px}
-.setting-label{font-size:13px;font-weight:600}
-.setting-row input[type=checkbox]{width:17px;height:17px}
-.focus-mode{overflow:hidden}
-.focus-mode .appbar,.focus-mode #headerSection,.focus-mode .section,.focus-mode .bottomnote{display:none!important}
-.focus-mode main{max-width:none;padding:0;margin:0}
+.segments{display:flex;gap:3px;background:var(--surface);padding:3px;border-radius:8px}.segments button{background:transparent;border:1px solid transparent;padding:6px 10px;font-size:12px}.segments button.active{background:var(--panel);border-color:var(--line);color:var(--accent)}
+#modeSelect{font-size:12px;font-weight:650;border-color:var(--accent);color:var(--accent)}
+.filter-summary{padding:10px 17px;background:var(--surface);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--muted);border-bottom:1px solid var(--line)}
+.filterbar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding:13px 17px;border-bottom:1px solid var(--line)}.search{flex:1;min-width:210px}.filterbar select{max-width:180px}
+.datelabel{display:flex;gap:6px;align-items:center;font-size:11px;color:var(--muted)}.datelabel input{min-width:135px;font-size:12px;color:var(--ink)}
+.advanced{padding:0 17px 12px;border-bottom:1px solid var(--line)}.filterrow{display:flex;gap:7px;margin:8px 0}.filterrow>*{min-width:0}.filtervalue{flex:1}.filtervalue>*{width:100%}
+.viewhint{padding:9px 17px;font-size:11px;color:var(--muted);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px}
+.categorylegend{padding:10px 17px;display:flex;gap:8px;align-items:center;overflow:auto;border-bottom:1px solid var(--line);flex-shrink:0;white-space:nowrap;font-size:10px;color:var(--muted)}
+.legendlabel{font-size:9px;font-weight:750;letter-spacing:1px;margin-right:4px}.legendbtn{display:flex;gap:6px;align-items:center;border:1px solid var(--category-border);background:var(--category-bg);color:var(--category-text);padding:5px 9px;border-radius:6px;font-size:10px;font-weight:600}
+.legendbtn:hover{background:var(--category-hover);border-color:var(--category-dot)}.legendbtn.selected{outline:2px solid var(--category-dot);outline-offset:1px}
+.dot{width:7px;height:7px;display:inline-block;border-radius:50%;background:var(--category-dot);flex-shrink:0}
+.tablewrap{overflow:auto;max-height:555px}table{border-collapse:separate;border-spacing:0;text-align:left;width:100%;font-size:12px}
+th{background:var(--surface);position:sticky;top:0;z-index:2;border-bottom:1px solid var(--line);white-space:nowrap}th button{width:100%;border:0;border-radius:0;background:transparent;text-align:left;padding:12px 13px;font-size:11px;color:var(--muted);white-space:nowrap}
+td{padding:var(--cell-y) 13px;border-bottom:1px solid var(--line);max-width:340px;min-width:125px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#grid tbody td{background:var(--category-bg,var(--panel))}
+#grid tbody tr:hover td{background:var(--category-hover,var(--soft))}
+#grid tbody td:first-child{border-left:4px solid var(--category-dot,var(--line))}
+[data-zebra=true] #grid tbody tr:nth-child(even) td{background:var(--category-alt,var(--surface))}
+[data-zebra=true] #grid tbody tr:hover td{background:var(--category-hover,var(--soft))}
+td.action{width:58px;min-width:58px}.titlecell{font-weight:650;min-width:230px}.descriptioncell,.commentcell{min-width:230px}
+.celltext{display:flex;align-items:center;gap:7px;max-width:310px}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}
+.expandbtn,.commentbtn{border:1px solid var(--line);border-radius:5px;background:var(--panel);font-size:10px;padding:3px 5px;flex-shrink:0;color:var(--accent)}.commentbtn{font-size:11px}
+.teamchip{background:var(--team-bg);color:var(--team-text);padding:4px 7px;border-radius:5px;font-size:10px;font-weight:650}
+.categorychip{display:inline-flex;align-items:center;gap:6px;background:var(--category-hover);color:var(--category-text);border:1px solid var(--category-border);padding:4px 7px;border-radius:5px;font-size:10px;font-weight:650}
+[data-wrap=true] #grid td{white-space:normal;overflow-wrap:anywhere}[data-wrap=true] .truncate{white-space:normal;overflow-wrap:anywhere}
+td input,td select,td textarea{width:100%;min-width:130px;max-width:310px;padding:6px}td textarea{min-height:90px;white-space:pre-wrap}
+.footer{display:flex;justify-content:space-between;align-items:center;padding:11px 17px;font-size:11px;color:var(--muted);gap:10px;border-top:1px solid var(--line)}
+.empty{text-align:center;padding:40px!important;color:var(--muted)}.item{padding:23px}.itemhead{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:22px}.itemhead h3{font-size:20px;margin-bottom:8px;letter-spacing:-.4px}
+.formgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.field{display:flex;flex-direction:column;gap:7px;min-width:0}.field label{font-size:12px;color:var(--muted);font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.field input,.field select,.field textarea{width:100%}.field textarea{min-height:95px;line-height:1.6}.field.titlefield textarea{min-height:65px}.wide{grid-column:1/-1}
+.commentfield{padding:13px;border:1px solid var(--accent);border-radius:9px;background:var(--soft)}.commentfield label{color:var(--accent)}
+.bottomnote{display:flex;justify-content:space-between;gap:12px;padding:16px 1px;font-size:11px;color:var(--muted)}
+dialog{width:min(1080px,95vw);padding:0;border:1px solid var(--line);border-radius:15px;background:var(--panel);color:var(--ink);box-shadow:0 25px 100px #0005;max-height:92dvh}
+dialog::backdrop{background:#0c142b80;backdrop-filter:blur(4px)}.modalhead{display:flex;justify-content:space-between;align-items:center;padding:19px 23px;border-bottom:1px solid var(--line);gap:12px}.modalhead h3{font-size:18px;margin-bottom:4px}
+.modalbody{padding:20px 23px;overflow:auto;max-height:67dvh}.modalfoot{padding:15px 23px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.configtable td{padding:7px;min-width:70px;overflow:visible}.configtable th{position:static;padding:9px;font-size:11px;color:var(--muted)}.configtable input,.configtable select{width:100%;min-width:85px;padding:7px;font-size:12px}.configtable td:first-child{min-width:175px}.configtable .tiny{padding:5px;min-width:27px}
+.notice{background:var(--soft);color:var(--accent);padding:12px 15px;border-radius:9px;line-height:1.7;font-size:12px;margin-bottom:16px}.error{color:var(--red);font-size:12px;white-space:pre-wrap;margin-top:12px}.danger{color:var(--red)}
+.importdrop{border:2px dashed var(--line);border-radius:12px;padding:25px;text-align:center;background:var(--surface);cursor:pointer;margin-bottom:18px}.importdrop:hover{border-color:var(--accent)}
+.exportgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:17px 0}.exportgrid button{text-align:left;padding:16px}.exportgrid small{display:block;font-weight:400;color:var(--muted);margin-top:5px}
+.appearance-heading{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:21px 0 11px;font-weight:700}.appearance-heading:first-child{margin-top:0}
+.theme-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.theme-choice{padding:9px;text-align:left;border:2px solid var(--line)}.theme-choice.active{border-color:var(--accent)}
+.swatch{height:52px;border-radius:6px;display:flex;padding:7px;gap:5px;background:var(--sw-bg)}.swatch-sidebar{width:14px;background:var(--sw-accent);border-radius:3px}.swatch-content{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.swatch-content span{background:var(--sw-panel);border:1px solid var(--sw-line);border-radius:3px}.swatch-content span:last-child{grid-column:1/-1}.theme-name{font-size:12px;margin-top:8px;display:flex;justify-content:space-between}
+.setting-row{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:12px 0;border-bottom:1px solid var(--line)}.setting-label{font-size:13px;font-weight:600}.setting-row input[type=checkbox]{height:17px;width:17px}
+.palette-preview{display:flex;gap:7px;flex-wrap:wrap;padding:12px 0}.palette-preview span{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--category-border);background:var(--category-bg);color:var(--category-text);padding:6px 9px;border-radius:6px;font-size:11px}
+#textValue{width:100%;min-height:300px;line-height:1.8;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px}
+.focus-mode{overflow:hidden}.focus-mode .appbar,.focus-mode #headerSection,.focus-mode .section,.focus-mode .bottomnote{display:none!important}.focus-mode main{max-width:none;padding:0;margin:0}
 .focus-mode #register{position:fixed;inset:0;border:0;border-radius:0;z-index:100;display:flex;flex-direction:column;background:var(--panel)}
-.focus-mode #register .registerbar{flex-shrink:0}
-.focus-mode #gridView{flex:1;min-height:0;display:flex;flex-direction:column}
-.focus-mode #gridView.hidden{display:none}
-.focus-mode .tablewrap{flex:1;max-height:none;min-height:0}
-.focus-mode #formView{flex:1;min-height:0;overflow:auto}
-.focus-mode #filterSection{flex-shrink:0;max-height:38dvh;overflow:auto}
-.focus-mode .item{max-width:1500px;margin:auto;width:100%;padding:28px 35px}
-.focus-mode .formgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.focus-mode .footer{flex-shrink:0}
-.focus-label{color:var(--accent)}
-#toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:1000;background:var(--ink);color:var(--panel);padding:12px 18px;border-radius:10px;font-size:12px;box-shadow:0 5px 30px #0002;max-width:90vw}
-#toast:empty{display:none}
-.printonly{display:none}
-@media(min-width:1500px){.focus-mode .formgrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-@media(max-width:1000px){.appbar{padding:14px 18px}main{padding:20px 18px}.formgrid,.focus-mode .formgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.registerbar{flex-wrap:wrap}.cards{gap:9px}.card{padding:15px}.appbar .small{display:none}}
-@media(max-width:650px){.appbar,.heading{flex-direction:column;align-items:flex-start}.appbar{gap:10px}.cards{grid-template-columns:1fr 1fr}.charts{grid-template-columns:1fr}.formgrid,.focus-mode .formgrid{grid-template-columns:1fr}.theme-grid{grid-template-columns:1fr 1fr}.brand{font-size:17px}.exportgrid{grid-template-columns:1fr}.filterrow{flex-wrap:wrap}.filterrow>select{flex:1}.bottomnote{flex-direction:column}.itemhead{align-items:flex-start;flex-direction:column}.focus-mode .item{padding:20px}.viewhint{font-size:10px}.registerbar{padding:10px}.footer{flex-wrap:wrap}.theme-choice{padding:7px}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.focus-mode .registerbar,.focus-mode .viewhint{flex-shrink:0}.focus-mode #gridView{flex:1;min-height:0;display:flex;flex-direction:column}.focus-mode #gridView.hidden{display:none}
+.focus-mode .tablewrap{flex:1;max-height:none;min-height:0}.focus-mode #formView{flex:1;min-height:0;overflow:auto}.focus-mode #filterSection{flex-shrink:0;max-height:39dvh;overflow:auto}
+.focus-mode .item{max-width:1550px;margin:auto;width:100%;padding:27px 34px}.focus-mode .footer{flex-shrink:0}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--panel);padding:12px 18px;border-radius:9px;font-size:12px;z-index:1000;box-shadow:0 5px 30px #0002;max-width:90vw}#toast:empty{display:none}.printonly{display:none}
+@media(min-width:1550px){.focus-mode .formgrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:1100px){.registerbar{flex-wrap:wrap}.appbar{padding:14px 18px}main{padding:20px 18px}.cards{gap:9px}.card{padding:15px}.formgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.appbar .small{display:none}}
+@media(max-width:650px){.appbar,.heading{flex-direction:column;align-items:flex-start}.cards{grid-template-columns:1fr 1fr}.charts{grid-template-columns:1fr}.formgrid,.focus-mode .formgrid{grid-template-columns:1fr}.theme-grid{grid-template-columns:1fr 1fr}.exportgrid{grid-template-columns:1fr}.filterrow{flex-wrap:wrap}.filterrow>select{flex:1}.bottomnote{flex-direction:column}.itemhead{align-items:flex-start;flex-direction:column}.focus-mode .item{padding:20px}.footer{flex-wrap:wrap}.viewhint{flex-direction:column;gap:3px}}
 @media print{
-:root,[data-theme]{--bg:white;--panel:white;--surface:#f5f5f5;--ink:#111;--muted:#555;--line:#ccc;--accent:#304db5;--green:#196c4f;--green-bg:#e4f5ee;--red:#ad3047;--red-bg:#ffedf1;--amber:#815b12;--amber-bg:#fff4da;color-scheme:light}
-@page{size:landscape;margin:12mm}
-body,.focus-mode{overflow:visible;background:white}
-.appbar,.heading .tools,.section-summary,.chartdownload,.registerbar .tools,#filterSection,.viewhint,.footer,.bottomnote,dialog,#toast,th.action,td.action{display:none!important}
-main,.focus-mode main{padding:0;max-width:none}
-#headerSection,.focus-mode #headerSection,.section,.focus-mode .section{display:block!important}
-.section>div{display:grid!important}
-.panel,.card{box-shadow:none!important;break-inside:avoid}
-.focus-mode #register,#register{position:static!important;display:block!important;border:1px solid #ccc;border-radius:8px}
-#gridView,.focus-mode #gridView{display:block!important}
-#formView{display:none!important}
-.tablewrap,.focus-mode .tablewrap{max-height:none;overflow:visible}
-table{font-size:8px}th{position:static}th button{padding:6px;font-size:8px}td{white-space:normal!important;padding:5px;min-width:0!important;overflow:visible}
+:root,[data-theme]{--bg:#fff;--panel:#fff;--surface:#f5f5f5;--ink:#111;--muted:#555;--line:#ccc;--accent:#304db5;--soft:#eef1fa;--green:#196c4f;--green-bg:#e4f5ee;--red:#ad3047;--red-bg:#ffedf1;--amber:#815b12;--amber-bg:#fff4da;color-scheme:light}
+@page{size:landscape;margin:12mm}body,.focus-mode{overflow:visible;background:#fff}.appbar,.heading .tools,.section-summary,.chartdownload,.registerbar .tools,#filterSection,.viewhint,.footer,.bottomnote,dialog,#toast,th.action,td.action,.expandbtn,.commentbtn{display:none!important}
+main,.focus-mode main{padding:0;max-width:none}#headerSection,.focus-mode #headerSection,.section,.focus-mode .section{display:block!important}.section>div{display:grid!important}
+.panel,.card{box-shadow:none!important;break-inside:avoid}.focus-mode #register,#register{position:static!important;display:block!important;border:1px solid #ccc;border-radius:8px}#gridView,.focus-mode #gridView{display:block!important}#formView{display:none!important}
+.tablewrap,.focus-mode .tablewrap{max-height:none;overflow:visible}table{font-size:8px}th{position:static}th button{padding:6px;font-size:8px}td{white-space:normal!important;padding:5px;min-width:0!important;overflow:visible}.truncate{white-space:normal;overflow:visible}.celltext{max-width:none}
+#grid tbody td{background:var(--category-bg,#fff)!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}.categorychip,.legendbtn{print-color-adjust:exact;-webkit-print-color-adjust:exact}
 .card .number{font-size:23px}.card{padding:12px}.chart svg{height:140px}.heading{padding:0 0 15px}h1{font-size:24px}.printonly{display:block;font-size:10px}
 }
 </style>
 </head>
 <body>
 <header class="appbar">
-  <div class="brand"><span class="logo">↗</span> Release Desk <span class="tag">WORKSPACE</span></div>
-  <div class="tools">
-    <span id="saveState" class="small muted"></span>
-    <button id="appearanceBtn">◐ Appearance</button>
-    <button id="headerBtn" aria-controls="headerSection" aria-expanded="true">⌃ Hide header</button>
-  </div>
+<div class="brand"><span class="logo">↗</span> Release Desk <span class="tag">WORKSPACE</span></div>
+<div class="tools"><span id="saveState" class="small muted"></span><button id="appearanceBtn">◐ Appearance</button><button id="headerBtn" aria-controls="headerSection" aria-expanded="true">⌃ Hide header</button></div>
 </header>
 <main>
-<section id="headerSection">
-  <div class="heading">
-    <div><h1>Release overview</h1><p class="subtitle">Every release. Every checkpoint. Your workspace, your way.</p></div>
-    <div class="tools"><span id="sourceBadge" class="badge"></span><button id="columnsBtn">⚙ Columns</button><button id="exportBtn">↓ Export</button><button id="importBtn" class="primary">↑ Import Excel</button></div>
-  </div>
-</section>
-<details class="section" id="summarySection" open>
-  <summary class="section-summary"><span><span class="chev">⌄</span> Release summary</span><span class="section-right">4 key indicators <span class="collapse-label">Collapse</span></span></summary>
-  <div id="kpis" class="cards"></div>
-</details>
+<section id="headerSection"><div class="heading"><div><h1>Release overview</h1><p class="subtitle">Plan releases, track readiness, and keep the conversation in one place.</p></div><div class="tools"><span id="sourceBadge" class="badge"></span><button id="columnsBtn">⚙ Columns</button><button id="exportBtn">↓ Export</button><button id="importBtn" class="primary">↑ Import Excel</button></div></div></section>
+<details class="section" id="summarySection" open><summary class="section-summary"><span><span class="chev">⌄</span> Release summary</span><span class="right">4 key indicators · click to collapse</span></summary><div id="kpis" class="cards"></div></details>
 <details class="section" id="chartsSection" open>
-  <summary class="section-summary"><span><span class="chev">⌄</span> Analytics</span><span class="section-right">Interactive charts <span class="collapse-label">Collapse</span></span></summary>
-  <div class="charts">
-    <section class="panel"><div class="paneltop"><div><h2>Release readiness</h2><span class="note">Select a bar to filter</span></div><button data-chart="readiness" class="iconbtn chartdownload">↓ SVG</button></div><div id="readiness" class="chart"></div></section>
-    <section class="panel"><div class="paneltop"><div><h2>Releases by team</h2><span class="note">Current filters · select a team</span></div><button data-chart="teams" class="iconbtn chartdownload">↓ SVG</button></div><div id="teams" class="chart"></div></section>
-  </div>
+<summary class="section-summary"><span><span class="chev">⌄</span> Analytics</span><span class="right">Interactive charts · click to collapse</span></summary>
+<div class="charts">
+<section class="panel"><div class="paneltop"><div><h2>Release readiness</h2><span class="note">Select a bar to filter</span></div><button data-chart="readiness" class="iconbtn chartdownload">↓ SVG</button></div><div id="readiness" class="chart"></div></section>
+<section class="panel"><div class="paneltop"><div><h2>Releases by team</h2><span class="note">Current filters · select a team</span></div><button data-chart="teams" class="iconbtn chartdownload">↓ SVG</button></div><div id="teams" class="chart"></div></section>
+</div>
 </details>
-
 <section class="panel" id="register">
-  <div class="registerbar">
-    <div class="registertitle"><h2>Release register</h2><span id="countBadge" class="badge"></span><span id="focusStatus" class="small focus-label hidden">Focus mode</span></div>
-    <div class="tools">
-      <div class="segments"><button id="gridBtn" class="active">▦ Grid</button><button id="formBtn">▤ Item review</button></div>
-      <button id="newBtn" class="iconbtn">＋ New</button>
-      <button id="focusAppearance" class="iconbtn" title="Themes and layout" aria-label="Themes and layout">◐</button>
-      <button id="focusMore" class="iconbtn" title="Import, export, and columns">⋯ Tools</button>
-      <button id="focusBtn" class="iconbtn" aria-pressed="false">⛶ Full screen</button>
-    </div>
-  </div>
-  <details id="filterSection" open>
-    <summary class="filter-summary"><span><span class="chev">⌄</span> Search & filters <span class="badge" id="filterCount">0 active</span></span><span id="filterSummary">All releases</span></summary>
-    <div class="filterbar">
-      <input class="search" id="search" placeholder="Search titles, descriptions, JIRA…" aria-label="Search all columns">
-      <select id="teamFilter" aria-label="Filter by team"></select>
-      <select id="priorityFilter" aria-label="Filter by priority"></select>
-      <select id="readyFilter" aria-label="Filter by readiness"><option value="">All readiness</option><option>Ready</option><option>In progress</option><option>At risk</option></select>
-      <button id="advancedBtn">Advanced</button><button id="resetBtn">Reset</button>
-    </div>
-    <div id="advanced" class="advanced hidden"><p class="note">Match all rules. Filter any configured column.</p><div id="filterRows"></div><button id="addFilter" class="iconbtn">＋ Add rule</button></div>
-  </details>
-  <div class="viewhint"><span id="editHint">Double-click a cell to edit · Enter also opens an editor</span><span id="layoutHint">Collapse sections above or use Full screen</span></div>
-  <div id="gridView">
-    <div class="tablewrap"><table id="grid"></table></div>
-    <div class="footer"><span id="pageInfo"></span><div class="tools"><select id="pageSize" aria-label="Rows per page"><option>10</option><option>25</option><option>50</option><option>100</option></select><button id="prevPage" class="iconbtn">← Previous</button><button id="nextPage" class="iconbtn">Next →</button></div></div>
-  </div>
-  <div id="formView" class="hidden"></div>
+<div class="registerbar">
+<div class="registertitle"><h2>Release register</h2><span id="countBadge" class="badge"></span></div>
+<div class="tools">
+<select id="modeSelect" aria-label="Editing mode"><option value="readonly">🔒 Read-only</option><option value="editable">✎ Editable</option></select>
+<div class="segments"><button id="gridBtn" class="active">▦ Grid</button><button id="formBtn">▤ Item review</button></div>
+<button id="newBtn" class="iconbtn" disabled>＋ New</button><button id="focusAppearance" class="iconbtn" aria-label="Appearance">◐</button><button id="focusMore" class="iconbtn">⋯ Tools</button><button id="focusBtn" class="iconbtn" aria-pressed="false">⛶ Full screen</button>
+</div>
+</div>
+<details id="filterSection" open>
+<summary class="filter-summary"><span><span class="chev">⌄</span> Search & filters <span class="badge" id="filterCount">0 active</span></span><span id="filterSummary"></span></summary>
+<div class="filterbar">
+<input id="search" class="search" placeholder="Search ID, title, JIRA, comments…" aria-label="Search all columns">
+<select id="categoryFilter" aria-label="Filter by category"></select>
+<select id="teamFilter" aria-label="Filter by team"></select>
+<label class="datelabel">Release from <input id="dateFrom" type="date" aria-label="Release date from"></label>
+<label class="datelabel">To <input id="dateTo" type="date" aria-label="Release date to"></label>
+<select id="readyFilter" aria-label="Filter by readiness"><option value="">All readiness</option><option>Ready</option><option>In progress</option><option>At risk</option></select>
+<button id="advancedBtn">Advanced</button><button id="resetBtn">Reset</button>
+</div>
+<div id="advanced" class="advanced hidden"><p class="note">Match all rules. Any configured column can be used.</p><div id="filterRows"></div><button id="addFilter" class="iconbtn">＋ Add rule</button></div>
+</details>
+<div class="viewhint"><span id="editHint">Read-only · Comments remain editable</span><span>Pastel rows by category · Hover for full text · ⤢ Expand</span></div>
+<div id="gridView"><div class="categorylegend" id="categoryLegend"></div><div class="tablewrap"><table id="grid"></table></div><div class="footer"><span id="pageInfo"></span><div class="tools"><select id="pageSize" aria-label="Rows per page"><option>10</option><option>25</option><option>50</option><option>100</option></select><button id="prevPage" class="iconbtn">← Previous</button><button id="nextPage" class="iconbtn">Next →</button></div></div></div>
+<div id="formView" class="hidden"></div>
 </section>
-<div class="bottomnote"><span id="readinessNote"></span><span>Themes and layout saved in this browser · Export JSON for a data backup</span></div>
+<div class="bottomnote"><span>Soft category colors · Distinct team badges · Comments always editable</span><span>Saved in this browser · Export JSON for a portable backup</span></div>
 <p class="printonly" id="printInfo"></p>
 </main>
 
+<dialog id="textDialog" style="max-width:900px">
+<div class="modalhead"><div><h3 id="textHeading"></h3><span id="textMeta" class="note"></span></div><button data-close="textDialog" aria-label="Close">✕</button></div>
+<div class="modalbody"><textarea id="textValue" aria-label="Full content"></textarea><p class="note" id="textNote"></p></div>
+<div class="modalfoot"><button data-close="textDialog">Close</button><button id="saveText" class="primary">Save changes</button></div>
+</dialog>
+
 <dialog id="appearanceDialog" style="max-width:690px">
-  <div class="modalhead"><div><h3>Make it yours</h3><span class="note">Theme, style, and space to focus.</span></div><button data-close="appearanceDialog" aria-label="Close">✕</button></div>
-  <div class="modalbody">
-    <div class="appearance-heading">Color theme</div><div id="themeChoices" class="theme-grid"></div>
-    <div class="appearance-heading">Interface style</div>
-    <div class="setting-row"><div><div class="setting-label">Surface style</div><div class="note">Rounded, minimal, or strong borders</div></div><select id="styleSelect" aria-label="Interface style"><option value="soft">Soft & rounded</option><option value="flat">Flat & minimal</option><option value="outline">Outlined</option></select></div>
-    <div class="setting-row"><div><div class="setting-label">Density</div><div class="note">More breathing room or more rows</div></div><select id="densitySelect" aria-label="Density"><option value="comfortable">Comfortable</option><option value="compact">Compact</option></select></div>
-    <div class="setting-row"><div><div class="setting-label">Alternating grid rows</div><div class="note">Add subtle stripes to the register</div></div><input id="zebraToggle" type="checkbox" aria-label="Alternating grid rows"></div>
-    <div class="setting-row"><div><div class="setting-label">Wrap grid text</div><div class="note">Show long titles and descriptions on multiple lines</div></div><input id="wrapToggle" type="checkbox" aria-label="Wrap grid text"></div>
-    <div class="appearance-heading">Visible sections</div>
-    <div class="setting-row"><span class="setting-label">Page header & primary tools</span><input id="headerToggle" type="checkbox" aria-label="Show page header"></div>
-    <div class="setting-row"><span class="setting-label">Release summary</span><input id="summaryToggle" type="checkbox" aria-label="Expand summary"></div>
-    <div class="setting-row"><span class="setting-label">Analytics charts</span><input id="chartsToggle" type="checkbox" aria-label="Expand analytics"></div>
-    <div class="setting-row"><span class="setting-label">Search & filters</span><input id="filtersToggle" type="checkbox" aria-label="Expand search and filters"></div>
-    <p class="notice" style="margin-top:18px;margin-bottom:0">Use <strong>Full screen</strong> to fill the available window with the grid or item review form. Switch views without leaving focus mode. Use <strong>Exit full screen</strong> or <strong>Esc</strong> to return.</p>
-  </div>
-  <div class="modalfoot"><button id="resetAppearance">Reset appearance</button><button class="primary" data-close="appearanceDialog">Done</button></div>
+<div class="modalhead"><div><h3>Make it yours</h3><span class="note">Theme, style, and space to focus.</span></div><button data-close="appearanceDialog" aria-label="Close">✕</button></div>
+<div class="modalbody">
+<div class="appearance-heading">Color theme</div><div id="themeChoices" class="theme-grid"></div>
+<div class="appearance-heading">Category palette</div><div id="palettePreview" class="palette-preview"></div><p class="note">Light pastel shades identify categories. Custom categories receive their own hue. Dark themes use muted tints for readability.</p>
+<div class="appearance-heading">Interface style</div>
+<div class="setting-row"><div><div class="setting-label">Surface style</div><div class="note">Rounded, minimal, or strong borders</div></div><select id="styleSelect" aria-label="Surface style"><option value="soft">Soft & rounded</option><option value="flat">Flat & minimal</option><option value="outline">Outlined</option></select></div>
+<div class="setting-row"><div><div class="setting-label">Density</div><div class="note">More space or more rows</div></div><select id="densitySelect" aria-label="Density"><option value="comfortable">Comfortable</option><option value="compact">Compact</option></select></div>
+<div class="setting-row"><span class="setting-label">Alternating category shades</span><input id="zebraToggle" type="checkbox" aria-label="Alternating category shades"></div>
+<div class="setting-row"><span class="setting-label">Wrap grid text</span><input id="wrapToggle" type="checkbox" aria-label="Wrap grid text"></div>
+<div class="appearance-heading">Visible sections</div>
+<div class="setting-row"><span class="setting-label">Page header & primary tools</span><input id="headerToggle" type="checkbox" aria-label="Show header"></div>
+<div class="setting-row"><span class="setting-label">Release summary</span><input id="summaryToggle" type="checkbox" aria-label="Expand summary"></div>
+<div class="setting-row"><span class="setting-label">Analytics charts</span><input id="chartsToggle" type="checkbox" aria-label="Expand analytics"></div>
+<div class="setting-row"><span class="setting-label">Search & filters</span><input id="filtersToggle" type="checkbox" aria-label="Expand filters"></div>
+<p class="notice" style="margin:17px 0 0">Full screen fills the available window with the grid or item form. Switch views without leaving focus mode. Use Exit full screen or Esc to return.</p>
+</div>
+<div class="modalfoot"><button id="resetAppearance">Reset appearance</button><button data-close="appearanceDialog" class="primary">Done</button></div>
 </dialog>
 
 <dialog id="toolsDialog" style="max-width:440px">
-  <div class="modalhead"><h3>Workspace tools</h3><button data-close="toolsDialog" aria-label="Close">✕</button></div>
-  <div class="modalbody"><div class="exportgrid"><button id="toolsImport">↑ Import Excel<small>Read and map a workbook</small></button><button id="toolsExport">↓ Export<small>Data, charts, and PDF</small></button><button id="toolsColumns">⚙ Columns<small>Configure fields and values</small></button><button id="toolsAppearance">◐ Appearance<small>Themes and layout</small></button></div></div>
+<div class="modalhead"><h3>Workspace tools</h3><button data-close="toolsDialog" aria-label="Close">✕</button></div>
+<div class="modalbody"><div class="exportgrid"><button id="toolsImport">↑ Import Excel<small>Load and map a workbook</small></button><button id="toolsExport">↓ Export<small>Data, charts, and PDF</small></button><button id="toolsColumns">⚙ Columns<small>Configure fields and values</small></button><button id="toolsAppearance">◐ Appearance<small>Themes and layout</small></button></div></div>
 </dialog>
 
 <dialog id="importDialog">
-  <div class="modalhead"><div><h3>Import release workbook</h3><span class="note">Select a worksheet, then map its columns.</span></div><button data-close="importDialog" aria-label="Close">✕</button></div>
-  <div class="modalbody">
-    <div class="importdrop" id="dropZone"><strong>Choose a workbook or drop it here</strong><p class="note">Excel .xlsx · CSV .csv · Release Desk backup .json<br>Save legacy .xls files as .xlsx before importing.</p><input id="fileInput" type="file" accept=".xlsx,.csv,.json" aria-label="Choose file"></div>
-    <div id="importSetup" class="hidden">
-      <div class="tools"><label>Worksheet <select id="sheetSelect"></select></label><label>Header row <input id="headerRow" type="number" min="1" value="1" style="width:75px"></label><span id="importCount" class="note"></span></div>
-      <p class="note">Map existing fields, ignore columns, or create new fields. Configure additional field types in Columns.</p>
-      <div style="overflow:auto"><table class="configtable"><thead><tr><th>Spreadsheet column</th><th>Sample value</th><th>Dashboard field</th></tr></thead><tbody id="mappingRows"></tbody></table></div>
-    </div><div id="importError" class="error" role="alert"></div>
-  </div>
-  <div class="modalfoot"><button id="templateBtn">Download Excel template</button><button data-close="importDialog">Cancel</button><button id="applyImport" class="primary" disabled>Import & replace data</button></div>
+<div class="modalhead"><div><h3>Import release workbook</h3><span class="note">Select a worksheet, then map the columns.</span></div><button data-close="importDialog" aria-label="Close">✕</button></div>
+<div class="modalbody">
+<div class="notice">Existing IDs are preserved. Missing or duplicate IDs receive unique IDs. ID, Comments, and Category fields are added when absent. Workbook loading is available in both editing modes.</div>
+<div class="importdrop" id="dropZone"><strong>Choose a workbook or drop it here</strong><p class="note">Excel .xlsx · CSV .csv · Release Desk backup .json<br>Save legacy .xls files as .xlsx before importing.</p><input id="fileInput" type="file" accept=".xlsx,.csv,.json" aria-label="Choose file"></div>
+<div id="importSetup" class="hidden">
+<div class="tools"><label>Worksheet <select id="sheetSelect"></select></label><label>Header row <input id="headerRow" type="number" min="1" value="1" style="width:75px"></label><span id="importCount" class="note"></span></div>
+<p class="note">Map existing fields, ignore columns, or create new fields.</p>
+<div style="overflow:auto"><table class="configtable"><thead><tr><th>Spreadsheet column</th><th>Sample value</th><th>Dashboard field</th></tr></thead><tbody id="mappingRows"></tbody></table></div>
+</div><div id="importError" class="error" role="alert"></div>
+</div>
+<div class="modalfoot"><button id="templateBtn">Download Excel template</button><button data-close="importDialog">Cancel</button><button id="applyImport" class="primary" disabled>Import & replace data</button></div>
 </dialog>
 
 <dialog id="columnsDialog">
-  <div class="modalhead"><div><h3>Configure columns</h3><span class="note">Rename, reorder, hide, or add fields.</span></div><button data-close="columnsDialog" aria-label="Close">✕</button></div>
-  <div class="modalbody">
-    <div class="notice">Dashboard roles connect fields to charts and readiness. Allowed values are comma-separated. Testing values Yes, Passed, Completed, Approved, Done, and N/A are ready. No, Failed, Blocked, or Rejected indicate risk. Other or empty values are in progress.</div>
-    <div style="overflow:auto"><table class="configtable"><thead><tr><th>Column label</th><th>Type</th><th>Dashboard role</th><th>Allowed values</th><th>Show</th><th>Order / remove</th></tr></thead><tbody id="columnRows"></tbody></table></div>
-    <button id="addColumn" style="margin-top:13px">＋ Add column</button><div id="columnError" class="error" role="alert"></div>
-  </div>
-  <div class="modalfoot"><button data-close="columnsDialog">Cancel</button><button id="saveColumns" class="primary">Save configuration</button></div>
+<div class="modalhead"><div><h3>Configure columns</h3><span class="note">Rename, reorder, hide, or add fields.</span></div><button data-close="columnsDialog" aria-label="Close">✕</button></div>
+<div class="modalbody">
+<div class="notice" id="columnNotice"></div>
+<div style="overflow:auto"><table class="configtable"><thead><tr><th>Column label</th><th>Type</th><th>Dashboard role</th><th>Allowed values</th><th>Show</th><th>Order / remove</th></tr></thead><tbody id="columnRows"></tbody></table></div>
+<button id="addColumn" style="margin-top:13px">＋ Add column</button><div id="columnError" class="error" role="alert"></div>
+</div>
+<div class="modalfoot"><button data-close="columnsDialog">Close</button><button id="saveColumns" class="primary">Save configuration</button></div>
 </dialog>
 
-<dialog id="exportDialog" style="max-width:640px">
-  <div class="modalhead"><h3>Export workspace</h3><button data-close="exportDialog" aria-label="Close">✕</button></div>
-  <div class="modalbody">
-    <label class="field">Data scope<select id="exportScope"><option value="filtered">Filtered items · all configured columns</option><option value="all">All items · all configured columns</option></select></label>
-    <div class="exportgrid">
-      <button data-export="xlsx">Excel workbook (.xlsx)<small>Editable data and column headers</small></button>
-      <button data-export="csv">CSV (.csv)<small>Excel-compatible tabular data</small></button>
-      <button data-export="json">Workspace backup (.json)<small>All items, columns, and appearance</small></button>
-      <button id="reportBtn">Print / Save PDF<small>Dashboard and all matching rows</small></button>
-    </div>
-    <h3>Chart downloads</h3><div class="tools" style="margin-top:12px"><button data-svg="readiness">Readiness SVG</button><button data-png="readiness">Readiness PNG</button><button data-svg="teams">Teams SVG</button><button data-png="teams">Teams PNG</button></div>
-    <p class="note">Charts use the active theme and current filters. PDF uses a print-friendly light layout. JSON always includes the whole workspace; import it to restore.</p>
-  </div>
-  <div class="modalfoot"><button data-close="exportDialog">Done</button></div>
+<dialog id="exportDialog" style="max-width:650px">
+<div class="modalhead"><h3>Export workspace</h3><button data-close="exportDialog" aria-label="Close">✕</button></div>
+<div class="modalbody">
+<label class="field">Data scope<select id="exportScope"><option value="filtered">Filtered items · all configured columns</option><option value="all">All items · all configured columns</option></select></label>
+<div class="exportgrid"><button data-export="xlsx">Excel workbook (.xlsx)<small>Includes IDs, comments, and all columns</small></button><button data-export="csv">CSV (.csv)<small>Compatible with spreadsheet tools</small></button><button data-export="json">Workspace backup (.json)<small>All data, columns, and appearance</small></button><button id="reportBtn">Print / Save PDF<small>Dashboard and all matching grid rows</small></button></div>
+<h3>Chart downloads</h3><div class="tools" style="margin-top:12px"><button data-svg="readiness">Readiness SVG</button><button data-png="readiness">Readiness PNG</button><button data-svg="teams">Teams SVG</button><button data-png="teams">Teams PNG</button></div>
+<p class="note">Charts follow the active theme and filters. PDF uses a light layout with category shading. JSON includes the full workspace. Each new session starts in read-only mode.</p>
+</div><div class="modalfoot"><button data-close="exportDialog">Done</button></div>
 </dialog>
 <div id="toast" role="status"></div>
 
@@ -341,258 +217,302 @@ const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const uid=()=>globalThis.crypto?.randomUUID?.()||Date.now().toString(36)+Math.random().toString(36).slice(2);
 const DATA_KEY='release-desk-v1',PREF_KEY='release-desk-appearance-v2';
-const roleLabels={none:'No dashboard role',date:'Release date',title:'Title',description:'Description',team:'Team',uat:'UAT testing',tcoe:'TCOE testing',ops:'Ops testing',priority:'Priority',severity:'Severity',jira:'JIRA reference'};
+const roles={none:'No dashboard role',id:'Release ID',date:'Release date',title:'Title',description:'Description',category:'Category',team:'Team',uat:'UAT testing',tcoe:'TCOE testing',ops:'Ops testing',priority:'Priority',severity:'Severity',jira:'JIRA reference',comments:'Comments'};
+const systemRoles=['id','comments','category'];
 const themes=[
-{id:'light',name:'Daylight',description:'Clear & classic',bg:'#f3f5fa',panel:'#fff',accent:'#536be8',line:'#dfe5f0'},
-{id:'midnight',name:'Midnight',description:'Calm after dark',bg:'#0d1424',panel:'#263651',accent:'#9aaaff',line:'#3c4b67'},
-{id:'forest',name:'Forest',description:'Natural & grounded',bg:'#eef3ef',panel:'#fcfefb',accent:'#357557',line:'#d9e5d8'},
-{id:'rose',name:'Rose',description:'Warm & expressive',bg:'#fbf2f5',panel:'#fffdfd',accent:'#ab4c78',line:'#eedce5'},
-{id:'sand',name:'Sandstone',description:'Soft & understated',bg:'#f4f0e8',panel:'#fffdf8',accent:'#946622',line:'#e6ddcc'},
-{id:'contrast',name:'High contrast',description:'Bold & readable',bg:'#000',panel:'#242424',accent:'#ffdd49',line:'#999'}
+{id:'light',name:'Daylight',bg:'#f3f5fa',panel:'#fff',accent:'#536be8',line:'#dfe5f0'},
+{id:'midnight',name:'Midnight',bg:'#0d1424',panel:'#263651',accent:'#a1b1ff',line:'#3c4b67'},
+{id:'forest',name:'Forest',bg:'#eef3ef',panel:'#fcfefb',accent:'#357557',line:'#d9e5d8'},
+{id:'rose',name:'Rose',bg:'#fbf2f5',panel:'#fffdfd',accent:'#ab4c78',line:'#eedce5'},
+{id:'sand',name:'Sandstone',bg:'#f4f0e8',panel:'#fffdf8',accent:'#946622',line:'#e6ddcc'},
+{id:'contrast',name:'High contrast',bg:'#000',panel:'#242424',accent:'#ffdd49',line:'#999'}
 ];
-const defaultPrefs={theme:'light',style:'soft',density:'comfortable',zebra:false,wrap:false,header:true,summary:true,charts:true,filters:true};
-let prefs={...defaultPrefs},storageWarning='';
+const defaults={theme:'light',style:'soft',density:'comfortable',zebra:false,wrap:false,header:true,summary:true,charts:true,filters:true};
+function cleanPrefs(p){const o={...defaults};if(!p||typeof p!=='object')return o;if(themes.some(t=>t.id===p.theme))o.theme=p.theme;if(['soft','flat','outline'].includes(p.style))o.style=p.style;if(['comfortable','compact'].includes(p.density))o.density=p.density;for(const k of ['zebra','wrap','header','summary','charts','filters'])if(typeof p[k]==='boolean')o[k]=p[k];return o}
+let prefs={...defaults},storageWarning='';
 try{prefs=cleanPrefs(JSON.parse(localStorage.getItem(PREF_KEY)||'{}'))}catch{}
-function cleanPrefs(p){
-const out={...defaultPrefs};if(!p||typeof p!=='object')return out;
-if(themes.some(t=>t.id===p.theme))out.theme=p.theme;
-if(['soft','flat','outline'].includes(p.style))out.style=p.style;
-if(['comfortable','compact'].includes(p.density))out.density=p.density;
-for(const k of ['zebra','wrap','header','summary','charts','filters'])if(typeof p[k]==='boolean')out[k]=p[k];
-return out;
-}
 const baseColumns=[
+{id:'releaseId',label:'ID',type:'text',role:'id'},
 {id:'date',label:'Date of release',type:'date',role:'date'},
 {id:'title',label:'Title',type:'text',role:'title'},
 {id:'description',label:'Description',type:'longtext',role:'description'},
+{id:'category',label:'Category',type:'select',role:'category',options:['Feature','Improvement','Bug fix','Infrastructure','Security']},
 {id:'team',label:'Team',type:'select',role:'team',options:['Platform','Payments','Experience','Data']},
 {id:'uat',label:'UAT completed',type:'select',role:'uat',options:['Yes','No']},
 {id:'tcoe',label:'TCOE testing',type:'select',role:'tcoe',options:['Not started','In progress','Passed','Failed','Blocked','N/A']},
 {id:'ops',label:'Ops testing',type:'select',role:'ops',options:['Not started','In progress','Passed','Failed','Blocked','N/A']},
 {id:'priority',label:'Priority',type:'select',role:'priority',options:['Critical','High','Medium','Low']},
 {id:'severity',label:'Severity',type:'select',role:'severity',options:['S1 - Critical','S2 - Major','S3 - Minor','S4 - Cosmetic']},
-{id:'jira',label:'JIRA #',type:'text',role:'jira'}
+{id:'jira',label:'JIRA #',type:'text',role:'jira'},
+{id:'comments',label:'Comments',type:'longtext',role:'comments'}
 ].map(c=>({...c,visible:true,options:c.options||[]}));
 function isoLocal(d){return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')}
 function demo(){
 const names=['Payment gateway upgrade','Account settings refresh','Search indexing rollout','API rate limit controls','Invoice reconciliation','Customer activity feed','Warehouse sync v2','Single sign-on update','Checkout resilience','Analytics export service','Notification preferences','Cache performance tuning','Fraud rules refresh','Usage reporting'];
-const descriptions=['Upgrade transaction routing with improved retries.','Streamline profile and preference management.','Refresh product indexes and ranking signals.','Introduce configurable quotas for client applications.','Automate invoice matching and exception handling.','Deliver a consolidated timeline of customer events.','Improve data ingestion reliability and monitoring.','Expand enterprise authentication support.','Handle payment timeouts and recovery gracefully.','Add scheduled reporting exports for analysts.','Enable granular email and in-app preferences.','Reduce latency on frequently accessed endpoints.','Update fraud checks and decision logging.','Publish usage trends and team consumption metrics.'];
-return {columns:structuredClone(baseColumns),source:'Sample workspace',rows:names.map((title,i)=>{let d=new Date();d.setDate(d.getDate()+i-4);return {_id:uid(),date:isoLocal(d),title,description:descriptions[i],team:['Payments','Experience','Data','Platform'][i%4],uat:i%5===0?'No':'Yes',tcoe:i%6===0?'Blocked':i%4===0?'In progress':'Passed',ops:i%5===1?'Not started':i%7===0?'Failed':'Passed',priority:['High','Medium','Low','Critical'][i%4],severity:['S2 - Major','S3 - Minor','S4 - Cosmetic','S1 - Critical'][i%4],jira:'REL-'+(2401+i)}})};
+const descriptions=['Upgrade transaction routing with improved retries, transaction tracing, and a controlled rollout across regional payment providers.','Streamline profile and preference management, including account visibility and notification settings.','Refresh product indexes and ranking signals with validation across all supported search categories.','Introduce configurable quotas for client applications and expanded operational monitoring.','Automate invoice matching and exception handling for monthly reconciliation.','Deliver a consolidated timeline of customer events across channels.','Improve data ingestion reliability, retry handling, and warehouse monitoring.','Expand enterprise authentication support and improve session recovery.','Handle payment timeouts and recovery gracefully during checkout.','Add scheduled reporting exports for analysts and business teams.','Enable granular email and in-app preferences for customer communications.','Reduce latency on frequently accessed endpoints with new cache policies.','Update fraud checks, audit trails, and decision logging.','Publish usage trends and team consumption metrics for platform administrators.'];
+return {columns:structuredClone(baseColumns),source:'Sample workspace',rows:names.map((title,i)=>{const d=new Date();d.setDate(d.getDate()+i-4);return {_id:uid(),releaseId:'',date:isoLocal(d),title,description:descriptions[i],category:['Feature','Improvement','Infrastructure','Security','Bug fix'][i%5],team:['Payments','Experience','Data','Platform'][i%4],uat:i%5===0?'No':'Yes',tcoe:i%6===0?'Blocked':i%4===0?'In progress':'Passed',ops:i%5===1?'Not started':i%7===0?'Failed':'Passed',priority:['High','Medium','Low','Critical'][i%4],severity:['S2 - Major','S3 - Minor','S4 - Cosmetic','S1 - Critical'][i%4],jira:'REL-'+(2401+i),comments:i===0?'Awaiting confirmation from the regional operations lead.':i===3?'Please include the updated runbook in the release notes.':''}})};
+}
+function ensureSystem(s){
+let generated=0;
+const definitions=[{role:'id',label:'ID',type:'text'},{role:'comments',label:'Comments',type:'longtext'},{role:'category',label:'Category',type:'select',options:['Feature','Improvement','Bug fix','Infrastructure','Security']}];
+for(const def of definitions){
+let c=s.columns.find(c=>c.role===def.role);
+if(!c)c=s.columns.find(c=>(!c.role||c.role==='none')&&c.label.toLowerCase().replace(/[^a-z]/g,'')===def.label.toLowerCase());
+if(c){c.role=def.role;if(def.role==='id')c.type='text'}
+else{let label=def.label,n=2;while(s.columns.some(x=>x.label.toLowerCase()===label.toLowerCase())){label=def.label+' ('+n+')';n++}c={id:'c_'+uid(),...def,label,visible:true,options:def.options||[]};if(def.role==='id')s.columns.unshift(c);else s.columns.push(c)}
+}
+const idCol=s.columns.find(c=>c.role==='id'),seen=new Set();
+for(const r of s.rows){
+for(const c of s.columns)if(r[c.id]==null)r[c.id]='';
+let id=String(r[idCol.id]??'').trim();
+if(!id||seen.has(id.toLowerCase())){do{id='RD-'+uid().replace(/-/g,'').slice(0,10).toUpperCase()}while(seen.has(id.toLowerCase()));generated++}
+r[idCol.id]=id;seen.add(id.toLowerCase());if(!r._id)r._id=uid();
+}return generated;
+}
+function validateBackup(v){
+if(!v||!Array.isArray(v.columns)||!v.columns.length||!Array.isArray(v.rows))throw Error('Invalid workspace backup.');
+const ids=new Set(),labels=new Set(),used=new Set();
+for(const c of v.columns){
+if(!c||typeof c.id!=='string'||!c.id||['_id','__proto__','prototype','constructor'].includes(c.id)||ids.has(c.id)||typeof c.label!=='string'||!c.label.trim()||labels.has(c.label.toLowerCase())||!['text','longtext','date','number','select'].includes(c.type)||c.role&&!Object.hasOwn(roles,c.role)||c.options&&(!Array.isArray(c.options)||c.options.some(x=>typeof x!=='string')))throw Error('Invalid or duplicate column configuration.');
+ids.add(c.id);labels.add(c.label.toLowerCase());if(c.role&&c.role!=='none'){if(used.has(c.role))throw Error('Duplicate dashboard role.');used.add(c.role)}
+}
+if(!v.columns.some(c=>c.visible!==false))throw Error('Keep a visible column.');
+const seen=new Set();for(const r of v.rows){if(!r||typeof r!=='object'||Array.isArray(r))throw Error('Invalid item in backup.');for(const c of v.columns)if(r[c.id]!=null&&!['string','number','boolean'].includes(typeof r[c.id]))throw Error('Invalid cell value.');if(typeof r._id!=='string'||seen.has(r._id))r._id=uid();seen.add(r._id)}
 }
 let state=demo();
-try{const saved=localStorage.getItem(DATA_KEY);if(saved){const v=JSON.parse(saved);validateBackup(v);state={columns:v.columns,rows:v.rows,source:v.source}}}catch{storageWarning='Browser storage is unavailable or saved data could not be restored. Export JSON to retain changes.'}
-let ui={search:'',team:'',priority:'',ready:'',filters:[],sort:null,dir:1,page:0,size:10,view:'grid',current:null};
-let draft=[],imported=null,searchTimer,focusMode=false,filterBeforeFocus=true,applyingPrefs=false;
+try{const raw=localStorage.getItem(DATA_KEY);if(raw){const v=JSON.parse(raw);validateBackup(v);state={columns:v.columns,rows:v.rows,source:v.source}}}catch{storageWarning='Saved data could not be restored or browser storage is unavailable. Export JSON to retain your work.'}
+ensureSystem(state);
+let ui={editable:false,search:'',category:'',team:'',from:'',to:'',ready:'',filters:[],sort:null,dir:1,page:0,size:10,view:'grid',current:null};
+let draft=[],imported=null,searchTimer,focusMode=false,filterBeforeFocus=true,expanded=null,printState=null;
 function toast(s){$('toast').textContent=s;clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('toast').textContent='',5000)}
 function persist(){try{localStorage.setItem(DATA_KEY,JSON.stringify(state));$('saveState').textContent='✓ Saved locally'}catch{$('saveState').textContent='Not saved';toast('Browser storage is unavailable or full. Export JSON to keep your changes.')}}
-function persistPrefs(){try{localStorage.setItem(PREF_KEY,JSON.stringify(prefs))}catch{toast('Appearance changed for this session. Browser storage is unavailable.')}}
-function applyAppearance(save=false){
-applyingPrefs=true;
-const root=document.documentElement;root.dataset.theme=prefs.theme;root.dataset.style=prefs.style;root.dataset.density=prefs.density;root.dataset.zebra=String(prefs.zebra);root.dataset.wrap=String(prefs.wrap);
-$('headerSection').classList.toggle('hidden',!prefs.header);
-$('headerBtn').textContent=prefs.header?'⌃ Hide header':'⌄ Show header';$('headerBtn').setAttribute('aria-expanded',String(prefs.header));
-$('summarySection').open=prefs.summary;$('chartsSection').open=prefs.charts;
-if(!focusMode)$('filterSection').open=prefs.filters;
-syncAppearanceControls();applyingPrefs=false;if(save)persistPrefs();
-if(typeof render==='function')render();
-}
-function syncAppearanceControls(){
-$('styleSelect').value=prefs.style;$('densitySelect').value=prefs.density;
-$('zebraToggle').checked=prefs.zebra;$('wrapToggle').checked=prefs.wrap;
-for(const [id,key]of [['headerToggle','header'],['summaryToggle','summary'],['chartsToggle','charts'],['filtersToggle','filters']])$(id).checked=prefs[key];
-$('themeChoices').innerHTML=themes.map(t=>`<button class="theme-choice ${prefs.theme===t.id?'active':''}" data-theme-choice="${t.id}" aria-pressed="${prefs.theme===t.id}" title="${t.description}"><div class="swatch" style="--sw-bg:${t.bg};--sw-panel:${t.panel};--sw-accent:${t.accent};--sw-line:${t.line}"><div class="swatch-sidebar"></div><div class="swatch-content"><span></span><span></span><span></span><span></span></div></div><div class="theme-name">${t.name}<span>${prefs.theme===t.id?'✓':''}</span></div></button>`).join('');
-$('themeChoices').querySelectorAll('[data-theme-choice]').forEach(b=>b.onclick=()=>{prefs.theme=b.dataset.themeChoice;applyAppearance(true)});
-for(const id of ['summarySection','chartsSection'])$(id).querySelector('.collapse-label').textContent=$(id).open?'Collapse':'Expand';
-}
-function openAppearance(){syncAppearanceControls();$('appearanceDialog').showModal()}
-function setFocus(active,requestNative=true){
-if(active===focusMode)return;
-focusMode=active;document.body.classList.toggle('focus-mode',active);
-$('focusBtn').textContent=active?'⤢ Exit full screen':'⛶ Full screen';$('focusBtn').setAttribute('aria-pressed',String(active));$('focusStatus').classList.toggle('hidden',!active);
-$('layoutHint').textContent=active?'Esc to exit · Switch between grid and form':'Collapse sections above or use Full screen';
-if(active){
-filterBeforeFocus=$('filterSection').open;$('filterSection').open=false;
-if(requestNative&&document.documentElement.requestFullscreen){try{const p=document.documentElement.requestFullscreen();if(p?.catch)p.catch(()=>{})}catch{}}
-}else{
-$('filterSection').open=filterBeforeFocus;
-if(document.fullscreenElement&&document.exitFullscreen){try{const p=document.exitFullscreen();if(p?.catch)p.catch(()=>{})}catch{}}
-}
-$('focusBtn').focus();
-}
-document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&focusMode)setFocus(false,false)});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&focusMode&&!document.querySelector('dialog[open]')){e.preventDefault();setFocus(false,false)}});
+function persistPrefs(){try{localStorage.setItem(PREF_KEY,JSON.stringify(prefs))}catch{toast('Appearance applies to this session. Browser storage is unavailable.')}}
+function canEdit(c,editable=ui.editable){return c.role==='comments'||(editable&&c.role!=='id')}
 function col(role){return state.columns.find(c=>c.role===role)}
-function value(row,role){const c=col(role);return c?String(row[c.id]??''):''}
-function ready(row){
-const fields=state.columns.filter(c=>['uat','tcoe','ops'].includes(c.role));
-if(!fields.length)return 'In progress';
-const values=fields.map(c=>String(row[c.id]??'').trim().toLowerCase());
-if(values.some(v=>['no','failed','fail','blocked','rejected'].includes(v)))return 'At risk';
-return values.every(v=>['yes','passed','pass','completed','complete','approved','done','n/a','not applicable'].includes(v))?'Ready':'In progress';
-}
-function tone(v){v=String(v).toLowerCase();if(['yes','passed','ready','completed','approved','done','n/a'].includes(v))return 'good';if(['no','failed','blocked','critical','at risk','rejected'].includes(v)||v.startsWith('s1'))return 'bad';if(['high','in progress','not started'].includes(v)||v.startsWith('s2'))return 'warn';if(v==='medium')return 'purple';return ''}
+function val(r,role){const c=col(role);return c?String(r[c.id]??''):''}
+function ready(r){const cs=state.columns.filter(c=>['uat','tcoe','ops'].includes(c.role));if(!cs.length)return 'In progress';const v=cs.map(c=>String(r[c.id]??'').trim().toLowerCase());if(v.some(x=>['no','failed','fail','blocked','rejected'].includes(x)))return 'At risk';return v.every(x=>['yes','passed','pass','completed','complete','approved','done','n/a','not applicable'].includes(x))?'Ready':'In progress'}
+function tone(v){v=String(v).toLowerCase();if(['yes','passed','ready','completed','approved','done','n/a'].includes(v))return 'good';if(['no','failed','blocked','critical','at risk','rejected'].includes(v)||v.startsWith('s1'))return 'bad';if(['high','in progress','not started'].includes(v)||v.startsWith('s2'))return 'warn';return v==='medium'?'purple':''}
 function badge(v){return `<span class="badge ${tone(v)}">${esc(v||'—')}</span>`}
+function options(v,selected,first){return (first!==undefined?`<option value="">${esc(first)}</option>`:'')+v.map(x=>`<option value="${esc(x)}"${x===selected?' selected':''}>${esc(x)}</option>`).join('')}
 function compare(a,b,c){if(c?.type==='number'&&Number.isFinite(Number(a))&&Number.isFinite(Number(b)))return Number(a)-Number(b);return String(a).localeCompare(String(b),undefined,{numeric:true,sensitivity:'base'})}
 function filtered(){
 let rows=state.rows.filter(r=>{
 if(ui.search&&!state.columns.some(c=>String(r[c.id]??'').toLowerCase().includes(ui.search.toLowerCase())))return false;
-if(ui.team&&value(r,'team')!==ui.team||ui.priority&&value(r,'priority')!==ui.priority||ui.ready&&ready(r)!==ui.ready)return false;
-return ui.filters.every(f=>{
-const c=state.columns.find(c=>c.id===f.id);if(!c)return true;
-let x=String(r[f.id]??''),y=String(f.value??''),v=x.toLowerCase(),w=y.toLowerCase();
-if(f.op==='blank')return !x.trim();if(f.op==='notblank')return !!x.trim();if(!y)return true;
-if(f.op==='contains')return v.includes(w);if(f.op==='eq')return v===w;if(f.op==='neq')return v!==w;if(!x)return false;
-const z=compare(x,y,c);return f.op==='gte'?z>=0:z<=0;
+if(ui.team&&val(r,'team')!==ui.team||ui.category&&val(r,'category')!==ui.category||ui.ready&&ready(r)!==ui.ready)return false;
+const d=val(r,'date');if(ui.from&&(!d||d<ui.from)||ui.to&&(!d||d>ui.to))return false;
+return ui.filters.every(f=>{const c=state.columns.find(c=>c.id===f.id);if(!c)return true;const x=String(r[f.id]??''),y=String(f.value??''),a=x.toLowerCase(),b=y.toLowerCase();if(f.op==='blank')return !x.trim();if(f.op==='notblank')return !!x.trim();if(!y)return true;if(f.op==='contains')return a.includes(b);if(f.op==='eq')return a===b;if(f.op==='neq')return a!==b;if(!x)return false;return f.op==='gte'?compare(x,y,c)>=0:compare(x,y,c)<=0});
 });
-});
-if(ui.sort){const c=state.columns.find(c=>c.id===ui.sort);rows.sort((a,b)=>{let x=a[ui.sort]??'',y=b[ui.sort]??'';if(x===''&&y!=='')return 1;if(y===''&&x!=='')return -1;return compare(x,y,c)*ui.dir})}
-return rows;
+if(ui.sort){const c=state.columns.find(c=>c.id===ui.sort);rows.sort((a,b)=>{const x=a[ui.sort]??'',y=b[ui.sort]??'';if(x===''&&y!=='')return 1;if(y===''&&x!=='')return -1;return compare(x,y,c)*ui.dir})}return rows;
 }
-function resetUI(){clearTimeout(searchTimer);ui={...ui,search:'',team:'',priority:'',ready:'',filters:[],page:0,current:null,sort:null};$('search').value='';$('readyFilter').value='';renderFilters()}
-function options(values,selected,first){return (first!==undefined?`<option value="">${esc(first)}</option>`:'')+values.map(v=>`<option value="${esc(v)}"${v===selected?' selected':''}>${esc(v)}</option>`).join('')}
+function resetUI(){clearTimeout(searchTimer);ui={...ui,search:'',category:'',team:'',from:'',to:'',ready:'',filters:[],page:0,current:null,sort:null};$('search').value='';for(const id of ['dateFrom','dateTo']){$(id).value='';$(id).setCustomValidity('')}renderFilters()}
+function teamNames(){return [...new Set(state.rows.map(r=>val(r,'team')).filter(Boolean))].sort()}
+function categoryNames(){return [...new Set(state.rows.map(r=>val(r,'category')).filter(Boolean))].sort()}
+function categoryStyle(name,forceLight=false){
+const dark=!forceLight&&['midnight','contrast'].includes(prefs.theme);
+if(!name)return dark?'--category-bg:#172031;--category-alt:#1b2639;--category-hover:#24324a;--category-dot:#8a98ad;--category-border:#394760;--category-text:#dce5f5;':'--category-bg:#f8fafc;--category-alt:#f1f5f9;--category-hover:#e9eff5;--category-dot:#94a3b8;--category-border:#dce4ed;--category-text:#52647c;';
+const fixed={'feature':214,'improvement':148,'bug fix':31,'infrastructure':265,'security':182};
+const key=name.trim().toLowerCase();let h=fixed[key];
+if(h===undefined){let hash=2166136261;for(const ch of key)hash=Math.imul(hash^ch.charCodeAt(0),16777619);h=(hash>>>0)%360}
+return dark?
+`--category-bg:hsl(${h} 28% 15%);--category-alt:hsl(${h} 29% 18%);--category-hover:hsl(${h} 32% 23%);--category-dot:hsl(${h} 65% 72%);--category-border:hsl(${h} 28% 32%);--category-text:hsl(${h} 75% 85%);`:
+`--category-bg:hsl(${h} 80% 97%);--category-alt:hsl(${h} 75% 95%);--category-hover:hsl(${h} 75% 92%);--category-dot:hsl(${h} 60% 56%);--category-border:hsl(${h} 55% 87%);--category-text:hsl(${h} 48% 31%);`;
+}
+function teamStyle(name){
+if(!name)return '--team-bg:var(--surface);--team-text:var(--muted);';
+const h=Math.round((25+Math.max(0,teamNames().indexOf(name))*137.508)%360),dark=['midnight','contrast'].includes(prefs.theme);
+return `--team-bg:hsl(${h} ${dark?30:55}% ${dark?24:91}%);--team-text:hsl(${h} ${dark?75:60}% ${dark?84:28}%);`;
+}
 function syncQuick(){
-for(const [id,role,selected,label]of [['teamFilter','team',ui.team,'All teams'],['priorityFilter','priority',ui.priority,'All priorities']]){
-const c=col(role),el=$(id);el.disabled=!c;el.innerHTML=options(c?[...new Set(state.rows.map(r=>String(r[c.id]??'')).filter(Boolean))].sort():[],selected,label)}
-$('readyFilter').value=ui.ready;
+for(const [id,role,selected,label]of [['teamFilter','team',ui.team,'All teams'],['categoryFilter','category',ui.category,'All categories']]){
+const c=col(role);$(id).disabled=!c;$(id).innerHTML=options(c?[...new Set(state.rows.map(r=>String(r[c.id]??'')).filter(Boolean))].sort():[],selected,label)}
+$('readyFilter').value=ui.ready;$('dateFrom').disabled=!col('date');$('dateTo').disabled=!col('date');
 }
-function render(){
-syncQuick();const rows=filtered(),counts={'Ready':0,'In progress':0,'At risk':0};rows.forEach(r=>counts[ready(r)]++);
+function renderOverview(rows=filtered()){
+syncQuick();const counts={'Ready':0,'In progress':0,'At risk':0};rows.forEach(r=>counts[ready(r)]++);
 const ratio=rows.length?Math.round(counts.Ready/rows.length*100):0;
-$('kpis').innerHTML=[
-['Total releases',rows.length,'Matching current filters','var(--accent)'],
-['Ready for release',counts.Ready,ratio+'% of matching releases','var(--green)'],
-['In progress',counts['In progress'],'Testing pending or incomplete','var(--amber)'],
-['At risk',counts['At risk'],'Failed, blocked, or UAT = No','var(--red)']
-].map(([label,n,foot,color])=>`<div class="card" style="--kpi-color:${color}"><div class="label">${label}</div><div class="number">${n}</div><div class="foot">${foot}</div></div>`).join('');
+$('kpis').innerHTML=[['Total releases',rows.length,'Matching current filters','var(--accent)'],['Ready for release',counts.Ready,ratio+'% of matching releases','var(--green)'],['In progress',counts['In progress'],'Testing pending or incomplete','var(--amber)'],['At risk',counts['At risk'],'Failed, blocked, or UAT = No','var(--red)']].map(([label,n,foot,color])=>`<div class="card" style="--kpi:${color}"><div class="label">${label}</div><div class="number">${n}</div><div class="foot">${foot}</div></div>`).join('');
 $('sourceBadge').textContent=state.source||'Release workspace';$('countBadge').textContent=rows.length+' items';
-const num=ui.filters.filter(f=>f.value||['blank','notblank'].includes(f.op)).length+[ui.team,ui.priority,ui.ready,ui.search].filter(Boolean).length;
-$('filterCount').textContent=num+' active';$('filterSummary').textContent=num?rows.length+' of '+state.rows.length+' releases':'All '+state.rows.length+' releases';
-$('readinessNote').textContent='Readiness uses mapped UAT, TCOE, and Ops fields.'+(!state.columns.some(c=>['uat','tcoe','ops'].includes(c.role))?' No testing fields are mapped.':'');
+const n=ui.filters.filter(f=>f.value||['blank','notblank'].includes(f.op)).length+[ui.search,ui.team,ui.category,ui.from,ui.to,ui.ready].filter(Boolean).length;
+$('filterCount').textContent=n+' active';$('filterSummary').textContent=n?rows.length+' of '+state.rows.length+' releases':'All '+state.rows.length+' releases';
+$('newBtn').disabled=!ui.editable;$('newBtn').title=ui.editable?'Add release':'Switch to Editable to add releases';$('modeSelect').value=ui.editable?'editable':'readonly';
+$('editHint').textContent=ui.editable?(ui.view==='grid'?'Editable · Double-click a cell to edit · IDs stay fixed':'Editable · Changes save when you leave a field'):'🔒 Read-only · Use ✎ or the Comments field to add comments';
 const css=getComputedStyle(document.documentElement),color=n=>css.getPropertyValue(n).trim();
 drawBars('readiness',Object.entries(counts),[color('--green'),color('--amber'),color('--red')],k=>{ui.ready=ui.ready===k?'':k;ui.page=0;render()},color);
-const teamCounts=new Map();rows.forEach(r=>{const t=value(r,'team')||'Unassigned';teamCounts.set(t,(teamCounts.get(t)||0)+1)});
-const all=[...teamCounts].sort((a,b)=>b[1]-a[1]),top=all.slice(0,6);
-if(all.length>6)top.push(['Other teams',all.slice(6).reduce((s,t)=>s+t[1],0)]);
-drawBars('teams',top,top.map(()=>color('--accent')),k=>{if(k==='Other teams'||k==='Unassigned'||!col('team'))return;ui.team=ui.team===k?'':k;ui.page=0;render()},color);
+const teams=new Map();rows.forEach(r=>{const t=val(r,'team')||'Unassigned';teams.set(t,(teams.get(t)||0)+1)});
+const all=[...teams].sort((a,b)=>b[1]-a[1]),top=all.slice(0,6);if(all.length>6)top.push(['Other teams',all.slice(6).reduce((s,x)=>s+x[1],0)]);
+drawBars('teams',top,top.map(()=>color('--accent')),k=>{if(k==='Unassigned'||k==='Other teams')return;ui.team=ui.team===k?'':k;ui.page=0;render()},color);
+}
+function render(){
+const rows=filtered();renderOverview(rows);
 $('gridView').classList.toggle('hidden',ui.view!=='grid');$('formView').classList.toggle('hidden',ui.view!=='form');
 $('gridBtn').classList.toggle('active',ui.view==='grid');$('formBtn').classList.toggle('active',ui.view==='form');
-$('editHint').textContent=ui.view==='grid'?'Double-click a cell to edit · Enter also opens an editor':'Edit any field · Changes save when you leave a field';
 if(ui.view==='grid')renderGrid(rows);else renderForm(rows);
 }
 function drawBars(id,entries,colors,onClick,color){
 const max=Math.max(1,...entries.map(x=>x[1])),step=entries.length>4?24:48,start=entries.length>4?13:25;
 $(id).innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 190" role="img" aria-label="${id==='teams'?'Release counts by team':'Release readiness counts'}"><rect width="540" height="190" fill="${color('--panel')}"/>${entries.length?entries.map(([label,n],i)=>{const y=start+i*step,w=Math.round(n/max*300);return `<g data-index="${i}" tabindex="0" role="button" aria-label="${esc(label)}: ${n}" style="cursor:pointer"><title>${esc(label)}: ${n}</title><text x="0" y="${y+12}" font-size="11" font-family="system-ui" fill="${color('--muted')}">${esc(label.length>23?label.slice(0,22)+'…':label)}</text><rect x="160" y="${y}" width="330" height="17" rx="4" fill="${color('--surface')}"/><rect x="160" y="${y}" width="${w}" height="17" rx="4" fill="${colors[i]}"/><text x="${170+w}" y="${y+12}" font-size="11" font-family="system-ui" fill="${color('--ink')}">${n}</text></g>`}).join(''):`<text x="270" y="95" text-anchor="middle" fill="${color('--muted')}" font-family="system-ui" font-size="13">No matching releases</text>`}</svg>`;
-$(id).querySelectorAll('[data-index]').forEach(el=>{const run=()=>onClick(entries[+el.dataset.index][0]);el.onclick=run;el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();run()}}});
+$(id).querySelectorAll('[data-index]').forEach(e=>{const run=()=>onClick(entries[+e.dataset.index][0]);e.onclick=run;e.onkeydown=k=>{if(k.key==='Enter'||k.key===' '){k.preventDefault();run()}}});
 }
-function renderGrid(rows,printAll=false){
-const columns=state.columns.filter(c=>c.visible!==false),pages=Math.max(1,Math.ceil(rows.length/ui.size));ui.page=Math.min(ui.page,pages-1);
-const list=printAll?rows:rows.slice(ui.page*ui.size,(ui.page+1)*ui.size);
-$('grid').innerHTML=`<thead><tr><th class="action"><button disabled>Review</button></th>${columns.map(c=>`<th aria-sort="${ui.sort===c.id?(ui.dir===1?'ascending':'descending'):'none'}"><button data-sort="${esc(c.id)}">${esc(c.label)} ${ui.sort===c.id?(ui.dir===1?'↑':'↓'):'↕'}</button></th>`).join('')}</tr></thead><tbody>${list.map(r=>`<tr><td class="action"><button class="iconbtn" data-review="${esc(r._id)}" aria-label="Review release">↗</button></td>${columns.map(c=>{const v=r[c.id]??'';return `<td data-row="${esc(r._id)}" data-col="${esc(c.id)}" tabindex="0" title="${esc(v)}" class="${c.role==='title'?'titlecell':''}">${c.type==='select'?badge(v):esc(v||'—')}</td>`}).join('')}</tr>`).join('')}</tbody>`;
-if(!list.length)$('grid').insertAdjacentHTML('beforeend',`<tfoot><tr><td colspan="${columns.length+1}" class="empty">No matching releases. Reset filters, import a workbook, or add a new item.</td></tr></tfoot>`);
+function renderLegend(){
+$('categoryLegend').innerHTML='<span class="legendlabel">CATEGORY COLORS</span>'+categoryNames().map(c=>`<button class="legendbtn ${ui.category===c?'selected':''}" style="${categoryStyle(c)}" data-category="${esc(c)}" aria-pressed="${ui.category===c}"><span class="dot"></span>${esc(c)}</button>`).join('')+(state.rows.some(r=>!val(r,'category'))?`<span style="${categoryStyle('')}" class="categorychip"><span class="dot"></span>Unassigned</span>`:'');
+$('categoryLegend').querySelectorAll('[data-category]').forEach(b=>b.onclick=()=>{ui.category=ui.category===b.dataset.category?'':b.dataset.category;ui.page=0;render()});
+}
+function cellHTML(r,c){
+const v=String(r[c.id]??'');
+if(c.role==='team')return `<span class="teamchip">${esc(v||'Unassigned')}</span>`;
+if(c.role==='category')return `<span class="categorychip"><span class="dot"></span>${esc(v||'Unassigned')}</span>`;
+if(['title','description','comments'].includes(c.role))return `<div class="celltext"><span class="truncate" title="${esc(v)}">${esc(v||(c.role==='comments'?'Add comment…':'—'))}</span>${c.role==='comments'?`<button class="commentbtn" data-comment="${esc(c.id)}" data-r="${esc(r._id)}" aria-label="Edit comments" title="Edit comments — available in read-only mode">✎</button>`:''}<button class="expandbtn" data-expand="${esc(c.id)}" data-r="${esc(r._id)}" aria-label="Expand ${esc(c.label)}" title="Show full ${esc(c.label)}">⤢</button></div>`;
+return c.type==='select'?badge(v):esc(v||'—');
+}
+function renderGrid(rows,all=false){
+renderLegend();const columns=state.columns.filter(c=>c.visible!==false),pages=Math.max(1,Math.ceil(rows.length/ui.size));ui.page=Math.min(ui.page,pages-1);
+const list=all?rows:rows.slice(ui.page*ui.size,(ui.page+1)*ui.size);
+$('grid').innerHTML=`<thead><tr><th class="action"><button disabled>Open</button></th>${columns.map(c=>`<th aria-sort="${ui.sort===c.id?(ui.dir===1?'ascending':'descending'):'none'}"><button data-sort="${esc(c.id)}">${esc(c.label)} ${c.role==='comments'?'✎ ':''}${ui.sort===c.id?(ui.dir===1?'↑':'↓'):'↕'}</button></th>`).join('')}</tr></thead><tbody>${list.map(r=>`<tr style="${categoryStyle(val(r,'category'),!!printState)}${teamStyle(val(r,'team'))}"><td class="action"><button class="iconbtn" data-review="${esc(r._id)}" aria-label="Review release">↗</button></td>${columns.map(c=>`<td data-row="${esc(r._id)}" data-col="${esc(c.id)}" tabindex="0" title="${esc(r[c.id]??'')}" class="${c.role==='title'?'titlecell':c.role==='description'?'descriptioncell':c.role==='comments'?'commentcell':''}">${cellHTML(r,c)}</td>`).join('')}</tr>`).join('')}</tbody>`;
+if(!list.length)$('grid').insertAdjacentHTML('beforeend',`<tfoot><tr><td colspan="${columns.length+1}" class="empty">No matching releases. Reset filters or import a workbook.</td></tr></tfoot>`);
 $('grid').querySelectorAll('[data-sort]').forEach(b=>b.onclick=()=>{if(ui.sort===b.dataset.sort)ui.dir*=-1;else{ui.sort=b.dataset.sort;ui.dir=1}ui.page=0;render()});
 $('grid').querySelectorAll('[data-review]').forEach(b=>b.onclick=()=>{ui.current=b.dataset.review;ui.view='form';render()});
-$('grid').querySelectorAll('[data-col]').forEach(td=>{td.ondblclick=()=>editCell(td);td.onkeydown=e=>{if(e.key==='Enter'&&e.target===td){e.preventDefault();editCell(td)}}});
+$('grid').querySelectorAll('[data-col]').forEach(td=>{td.ondblclick=e=>{if(!e.target.closest('button'))editCell(td)};td.onkeydown=e=>{if(e.key==='Enter'&&e.target===td){e.preventDefault();editCell(td)}}});
+$('grid').querySelectorAll('[data-expand]').forEach(b=>{b.onclick=e=>{e.stopPropagation();openText(b.dataset.r,b.dataset.expand)};b.ondblclick=e=>e.stopPropagation()});
+$('grid').querySelectorAll('[data-comment]').forEach(b=>{b.onclick=e=>{e.stopPropagation();openText(b.dataset.r,b.dataset.comment)};b.ondblclick=e=>e.stopPropagation()});
 $('pageInfo').textContent=rows.length?`${ui.page*ui.size+1}–${Math.min((ui.page+1)*ui.size,rows.length)} of ${rows.length} items · Page ${ui.page+1} of ${pages}`:'0 items';
 $('prevPage').disabled=ui.page===0;$('nextPage').disabled=ui.page>=pages-1;
 }
 function inputHTML(c,v,attr=''){
-if(c.type==='select'){const vals=[...new Set([...(c.options||[]),...(v?[String(v)]:[])])];return `<select ${attr}>${options(vals,String(v??''),'Choose…')}</select>`}
-if(c.type==='longtext')return `<textarea ${attr}>${esc(v)}</textarea>`;
+if(c.role==='comments'||c.type==='longtext')return `<textarea ${attr}>${esc(v)}</textarea>`;
+if(c.type==='select'){const a=[...new Set([...(c.options||[]),...(v?[String(v)]:[])])];return `<select ${attr}>${options(a,String(v??''),'Choose…')}</select>`}
 return `<input type="${['date','number'].includes(c.type)?c.type:'text'}" ${c.type==='number'?'step="any"':''} value="${esc(v)}" ${attr}>`;
 }
 function editCell(td){
 if(td.querySelector('input,select,textarea'))return;
 const r=state.rows.find(r=>r._id===td.dataset.row),c=state.columns.find(c=>c.id===td.dataset.col);if(!r||!c)return;
-td.innerHTML=inputHTML(c,r[c.id]??'',`aria-label="${esc(c.label)}"`);const input=td.firstElementChild;input.focus();let cancelled=false,finished=false;
-const finish=()=>{if(cancelled||finished)return;if(!input.reportValidity())return;finished=true;r[c.id]=input.value;persist();render()};
-input.onblur=finish;input.onkeydown=e=>{if(e.key==='Escape'){e.stopPropagation();cancelled=true;render()}else if(e.key==='Enter'&&c.type!=='longtext'){e.preventDefault();finish()}};
+if(!canEdit(c)){toast(c.role==='id'?'Release IDs are fixed to keep references stable.':'Read-only mode. Switch to Editable to change this field. Comments remain editable.');return}
+td.innerHTML=inputHTML(c,r[c.id]??'',`aria-label="${esc(c.label)}"`);const input=td.firstElementChild;input.focus();let done=false,cancelled=false;
+const finish=()=>{if(done||cancelled)return;if(!input.reportValidity())return;done=true;if(!canEdit(c)){render();return}r[c.id]=input.value;persist();render()};
+input.onblur=finish;input.onkeydown=e=>{if(e.key==='Escape'){e.stopPropagation();cancelled=true;render()}else if(e.key==='Enter'&&input.tagName!=='TEXTAREA'){e.preventDefault();finish()}};
 }
+function openText(rowId,colId){
+const r=state.rows.find(r=>r._id===rowId),c=state.columns.find(c=>c.id===colId);if(!r||!c)return;
+const releaseTitle = val(r, 'title').trim() || 'Untitled release';
+
+expanded={rowId,colId};
+//$('textHeading').textContent=c.label;
+//$('textMeta').textContent=val(r,'id')+' · '+(val(r,'title')||'Untitled release');
+
+$('textHeading').textContent =  c.role === 'description' ? releaseTitle : c.label;
+$('textMeta').textContent =   val(r, 'id') + ' · ' +   (c.role === 'description' ? c.label : releaseTitle);
+
+$('textValue').value=String(r[c.id]??'');$('textValue').readOnly=!canEdit(c);$('saveText').classList.toggle('hidden',!canEdit(c));
+$('textNote').textContent=c.role==='comments'?'Comments are editable in both read-only and editable modes.':canEdit(c)?'Full content. Save changes to update this release.':'Full content. Switch to Editable to change this field.';
+$('textDialog').showModal();if(c.role==='comments')$('textValue').focus();
+}
+$('saveText').onclick=()=>{
+if(!expanded)return;const r=state.rows.find(r=>r._id===expanded.rowId),c=state.columns.find(c=>c.id===expanded.colId);
+if(!r||!c||!canEdit(c))return;r[c.id]=$('textValue').value;persist();$('textDialog').close();render();toast(c.role==='comments'?'Comments saved':'Changes saved');
+};
 function renderForm(rows){
-if(!rows.length){$('formView').innerHTML='<div class="empty">No matching items. Reset filters or add a new release.</div>';return}
+if(!rows.length){$('formView').innerHTML='<div class="empty">No matching items. Reset filters or import a workbook.</div>';return}
 let idx=rows.findIndex(r=>r._id===ui.current);if(idx<0)idx=0;const r=rows[idx];ui.current=r._id;
-$('formView').innerHTML=`<div class="item"><div class="itemhead"><div><h3>${esc(value(r,'title')||'Untitled release')}</h3>${badge(ready(r))} <span class="small muted">Item ${idx+1} of ${rows.length}</span></div><div class="tools"><button id="prevItem" ${idx===0?'disabled':''} aria-label="Previous item">← Previous</button><button id="nextItem" ${idx===rows.length-1?'disabled':''} aria-label="Next item">Next →</button><button id="deleteItem" class="danger">Delete</button></div></div><div class="formgrid">${state.columns.map(c=>`<div class="field ${c.type==='longtext'?'wide':''}"><label for="field-${esc(c.id)}">${esc(c.label)}</label>${inputHTML(c,r[c.id]??'',`id="field-${esc(c.id)}" data-field="${esc(c.id)}"`)}</div>`).join('')}</div><p class="note">All configured fields are available, including columns hidden from the grid.</p></div>`;
+$('formView').innerHTML=`<div class="item"><div class="itemhead"><div><span class="badge">${esc(val(r,'id'))}</span> <span class="categorychip" style="${categoryStyle(val(r,'category'))}"><span class="dot"></span>${esc(val(r,'category')||'Unassigned')}</span><h3 id="itemTitle" style="margin-top:9px">${esc(val(r,'title')||'Untitled release')}</h3><span id="itemReady">${badge(ready(r))}</span> <span class="small muted">Item ${idx+1} of ${rows.length}</span></div><div class="tools"><button id="prevItem" ${idx===0?'disabled':''}>← Previous</button><button id="nextItem" ${idx===rows.length-1?'disabled':''}>Next →</button><button id="deleteItem" class="danger" ${!ui.editable?'disabled':''}>Delete</button></div></div><div class="formgrid">${state.columns.map(c=>{
+const editable=canEdit(c),large=['title','description','comments'].includes(c.role),inputC=c.role==='title'?{...c,type:'longtext'}:c;
+return `<div class="field ${['description','comments'].includes(c.role)?'wide':''} ${c.role==='comments'?'commentfield':''} ${c.role==='title'?'titlefield':''}"><label for="field-${esc(c.id)}"><span>${esc(c.label)} ${c.role==='id'?'🔒':''}${c.role==='comments'?' · Always editable':''}</span>${large?`<button class="expandbtn" type="button" data-form-expand="${esc(c.id)}" aria-label="Expand ${esc(c.label)}">⤢ Expand</button>`:''}</label>${inputHTML(inputC,r[c.id]??'',`id="field-${esc(c.id)}" data-field="${esc(c.id)}" ${!editable?(c.type==='select'?'disabled':'readonly'):''}`)}</div>`;
+}).join('')}</div><p class="note" id="itemNotice">All fields are available here, including columns hidden from the grid. IDs remain fixed.</p></div>`;
 $('prevItem').onclick=()=>{ui.current=rows[idx-1]._id;render()};$('nextItem').onclick=()=>{ui.current=rows[idx+1]._id;render()};
-$('deleteItem').onclick=()=>{if(confirm('Delete this release? This cannot be undone.')){state.rows=state.rows.filter(x=>x._id!==r._id);ui.current=null;persist();render();toast('Release deleted')}};
-$('formView').querySelectorAll('[data-field]').forEach(input=>input.onchange=()=>{if(!input.reportValidity())return;r[input.dataset.field]=input.value;persist();render()});
+$('deleteItem').onclick=()=>{if(!ui.editable)return;if(confirm('Delete this release? This cannot be undone.')){state.rows=state.rows.filter(x=>x._id!==r._id);ui.current=null;persist();render();toast('Release deleted')}};
+$('formView').querySelectorAll('[data-form-expand]').forEach(b=>b.onclick=()=>openText(r._id,b.dataset.formExpand));
+$('formView').querySelectorAll('[data-field]').forEach(input=>input.onchange=()=>{
+const c=state.columns.find(c=>c.id===input.dataset.field);if(!canEdit(c)||!input.reportValidity())return;
+r[c.id]=input.value;persist();renderOverview();$('itemTitle').textContent=val(r,'title')||'Untitled release';$('itemReady').innerHTML=badge(ready(r));
+$('itemNotice').textContent=filtered().some(x=>x._id===r._id)?'Changes saved. Comments remain editable in both modes.':'Saved. This item no longer matches the current filters. Switch views or navigate to refresh.';
+});
 }
 function renderFilters(){
-$('filterRows').innerHTML=ui.filters.map((f,i)=>{const c=state.columns.find(c=>c.id===f.id)||state.columns[0];return `<div class="filterrow" data-fi="${i}"><select class="filterfield" aria-label="Filter field">${state.columns.map(c=>`<option value="${esc(c.id)}"${c.id===f.id?' selected':''}>${esc(c.label)}</option>`).join('')}</select><select class="filterop" aria-label="Filter operator">${Object.entries({contains:'contains',eq:'equals',neq:'does not equal',gte:'on or after / ≥',lte:'on or before / ≤',blank:'is empty',notblank:'is not empty'}).map(([v,t])=>`<option value="${v}"${v===f.op?' selected':''}>${t}</option>`).join('')}</select><div class="filtervalue">${['blank','notblank'].includes(f.op)?'':inputHTML({...c,type:c.type==='longtext'?'text':c.type},f.value,'aria-label="Filter value"')}</div><button class="removefilter" aria-label="Remove filter">✕</button></div>`}).join('');
+$('filterRows').innerHTML=ui.filters.map((f,i)=>{const c=state.columns.find(c=>c.id===f.id)||state.columns[0];return `<div class="filterrow" data-fi="${i}"><select class="filterfield" aria-label="Filter field">${state.columns.map(c=>`<option value="${esc(c.id)}"${c.id===f.id?' selected':''}>${esc(c.label)}</option>`).join('')}</select><select class="filterop" aria-label="Filter operator">${Object.entries({contains:'contains',eq:'equals',neq:'does not equal',gte:'on or after / ≥',lte:'on or before / ≤',blank:'is empty',notblank:'is not empty'}).map(([v,t])=>`<option value="${v}"${v===f.op?' selected':''}>${t}</option>`).join('')}</select><div class="filtervalue">${['blank','notblank'].includes(f.op)?'':inputHTML({...c,role:'none',type:c.type==='longtext'?'text':c.type},f.value,'aria-label="Filter value"')}</div><button class="removefilter" aria-label="Remove filter">✕</button></div>`}).join('');
 $('filterRows').querySelectorAll('[data-fi]').forEach(el=>{const i=+el.dataset.fi;
 el.querySelector('.filterfield').onchange=e=>{ui.filters[i].id=e.target.value;ui.filters[i].value='';renderFilters();ui.page=0;render()};
 el.querySelector('.filterop').onchange=e=>{ui.filters[i].op=e.target.value;renderFilters();ui.page=0;render()};
-const input=el.querySelector('.filtervalue input,.filtervalue select,.filtervalue textarea');if(input)input.onchange=e=>{ui.filters[i].value=e.target.value;ui.page=0;render()};
+const input=el.querySelector('.filtervalue input,.filtervalue select');if(input)input.onchange=e=>{ui.filters[i].value=e.target.value;ui.page=0;render()};
 el.querySelector('.removefilter').onclick=()=>{ui.filters.splice(i,1);renderFilters();ui.page=0;render()};
 });
 }
 function openColumns(){draft=structuredClone(state.columns);$('columnError').textContent='';renderColumns();$('columnsDialog').showModal()}
 function renderColumns(){
-$('columnRows').innerHTML=draft.map((c,i)=>`<tr data-ci="${i}"><td><input data-prop="label" value="${esc(c.label)}" aria-label="Column label"></td><td><select data-prop="type" aria-label="Column type">${options(['text','longtext','date','number','select'],c.type)}</select></td><td><select data-prop="role" aria-label="Dashboard role">${Object.entries(roleLabels).map(([v,t])=>`<option value="${v}" ${v===(c.role||'none')?'selected':''}>${t}</option>`).join('')}</select></td><td><input data-prop="options" value="${esc((c.options||[]).join(', '))}" placeholder="Yes, No, Pending" aria-label="Allowed values"></td><td><input type="checkbox" data-prop="visible" ${c.visible!==false?'checked':''} aria-label="Show column"></td><td style="white-space:nowrap"><button class="tiny" data-move="-1" ${i===0?'disabled':''} aria-label="Move up">↑</button> <button class="tiny" data-move="1" ${i===draft.length-1?'disabled':''} aria-label="Move down">↓</button> <button class="tiny danger" data-remove aria-label="Remove column">✕</button></td></tr>`).join('');
+$('columnNotice').textContent=ui.editable?'Dashboard roles connect fields to charts. Allowed values are comma-separated. ID, Comments, and Category are retained; IDs cannot be edited. Ready testing values: Yes, Passed, Completed, Approved, Done, N/A. Risk values: No, Failed, Blocked, Rejected.':'Read-only mode. Switch the register to Editable to change column configuration. Comments remain editable from the grid and item form.';
+$('addColumn').disabled=!ui.editable;$('saveColumns').disabled=!ui.editable;
+$('columnRows').innerHTML=draft.map((c,i)=>{const locked=systemRoles.includes(c.role);return `<tr data-ci="${i}"><td><input data-prop="label" value="${esc(c.label)}" aria-label="Column label"></td><td><select data-prop="type" ${c.role==='id'?'disabled':''} aria-label="Column type">${options(['text','longtext','date','number','select'],c.type)}</select></td><td><select data-prop="role" ${locked?'disabled':''} aria-label="Dashboard role">${Object.entries(roles).map(([v,t])=>`<option value="${v}" ${v===(c.role||'none')?'selected':''}>${t}</option>`).join('')}</select></td><td><input data-prop="options" value="${esc((c.options||[]).join(', '))}" placeholder="Yes, No, Pending" aria-label="Allowed values"></td><td><input type="checkbox" data-prop="visible" ${c.visible!==false?'checked':''} aria-label="Show column"></td><td style="white-space:nowrap"><button class="tiny" data-move="-1" ${i===0?'disabled':''} aria-label="Move up">↑</button> <button class="tiny" data-move="1" ${i===draft.length-1?'disabled':''} aria-label="Move down">↓</button> <button class="tiny danger" data-remove ${locked?'disabled':''} aria-label="Remove column">✕</button></td></tr>`}).join('');
+if(!ui.editable)$('columnRows').querySelectorAll('input,select,button').forEach(e=>e.disabled=true);
 $('columnRows').querySelectorAll('[data-ci]').forEach(tr=>{const i=+tr.dataset.ci;
-tr.querySelectorAll('[data-prop]').forEach(input=>input.onchange=()=>{draft[i][input.dataset.prop]=input.dataset.prop==='visible'?input.checked:input.dataset.prop==='options'?[...new Set(input.value.split(',').map(s=>s.trim()).filter(Boolean))]:input.value});
-tr.querySelectorAll('[data-move]').forEach(b=>b.onclick=()=>{const j=i+Number(b.dataset.move);[draft[i],draft[j]]=[draft[j],draft[i]];renderColumns()});
-tr.querySelector('[data-remove]').onclick=()=>{if(confirm('Remove this column and its values when you save the configuration?')){draft.splice(i,1);renderColumns()}};
+tr.querySelectorAll('[data-prop]').forEach(input=>input.onchange=()=>{if(!ui.editable)return;draft[i][input.dataset.prop]=input.dataset.prop==='visible'?input.checked:input.dataset.prop==='options'?[...new Set(input.value.split(',').map(x=>x.trim()).filter(Boolean))]:input.value});
+tr.querySelectorAll('[data-move]').forEach(b=>b.onclick=()=>{if(!ui.editable)return;const j=i+Number(b.dataset.move);[draft[i],draft[j]]=[draft[j],draft[i]];renderColumns()});
+tr.querySelector('[data-remove]').onclick=()=>{if(!ui.editable||systemRoles.includes(draft[i].role))return;if(confirm('Remove this column and its values when you save?')){draft.splice(i,1);renderColumns()}};
 });
 }
 $('saveColumns').onclick=()=>{
+if(!ui.editable)return;
 if(!draft.length||!draft.some(c=>c.visible!==false)){$('columnError').textContent='Keep at least one visible column.';return}
-if(draft.some(c=>!c.label.trim())){$('columnError').textContent='Every column needs a label.';return}
-if(new Set(draft.map(c=>c.label.trim().toLowerCase())).size!==draft.length){$('columnError').textContent='Use a unique label for every column.';return}
-const assigned=draft.map(c=>c.role).filter(r=>r&&r!=='none');
-if(new Set(assigned).size!==assigned.length){$('columnError').textContent='Assign each dashboard role to only one column.';return}
+if(draft.some(c=>!c.label.trim())||new Set(draft.map(c=>c.label.trim().toLowerCase())).size!==draft.length){$('columnError').textContent='Use a nonempty, unique label for each column.';return}
+const assigned=draft.map(c=>c.role).filter(r=>r&&r!=='none');if(new Set(assigned).size!==assigned.length||systemRoles.some(r=>!assigned.includes(r))){$('columnError').textContent='Assign each role only once and retain ID, Comments, and Category.';return}
 const old=state.columns;state.columns=draft.map(c=>({...c,label:c.label.trim()}));
-state.rows.forEach(r=>{old.filter(c=>!draft.some(x=>x.id===c.id)).forEach(c=>delete r[c.id]);draft.forEach(c=>r[c.id]=normalizeValue(r[c.id]??'',c))});
-resetUI();persist();$('columnsDialog').close();render();toast('Column configuration updated');
+state.rows.forEach(r=>{old.filter(c=>!draft.some(x=>x.id===c.id)).forEach(c=>delete r[c.id]);draft.forEach(c=>r[c.id]=normalizeValue(r[c.id]??'',c))});ensureSystem(state);
+resetUI();persist();$('columnsDialog').close();render();toast('Columns updated');
 };
 function normalizeValue(v,c){
-if(v===null||v===undefined)return '';
+if(v==null)return '';
 if(c.type==='date'){
 if(typeof v==='number'||/^\d{5}(?:\.\d+)?$/.test(String(v))){const n=Number(v);if(n>0&&n<100000){const epoch=n<60?Date.UTC(1899,11,31):Date.UTC(1899,11,30);return new Date(epoch+Math.floor(n)*86400000).toISOString().slice(0,10)}}
-const s=String(v).trim();if(!s)return '';if(/^\d{4}-\d{2}-\d{2}/.test(s))return s.slice(0,10);
-const d=new Date(s);return Number.isNaN(d.getTime())?s:isoLocal(d);
+const s=String(v).trim();if(!s)return '';if(/^\d{4}-\d{2}-\d{2}/.test(s))return s.slice(0,10);const d=new Date(s);return Number.isNaN(d.getTime())?s:isoLocal(d);
+}return String(v);
 }
-return String(v);
+function syncAppearanceControls(){
+$('styleSelect').value=prefs.style;$('densitySelect').value=prefs.density;
+for(const [id,key]of [['zebraToggle','zebra'],['wrapToggle','wrap'],['headerToggle','header'],['summaryToggle','summary'],['chartsToggle','charts'],['filtersToggle','filters']])$(id).checked=prefs[key];
+$('themeChoices').innerHTML=themes.map(t=>`<button class="theme-choice ${prefs.theme===t.id?'active':''}" data-theme-choice="${t.id}" aria-pressed="${prefs.theme===t.id}"><div class="swatch" style="--sw-bg:${t.bg};--sw-panel:${t.panel};--sw-accent:${t.accent};--sw-line:${t.line}"><div class="swatch-sidebar"></div><div class="swatch-content"><span></span><span></span><span></span><span></span></div></div><div class="theme-name">${t.name}<span>${prefs.theme===t.id?'✓':''}</span></div></button>`).join('');
+$('themeChoices').querySelectorAll('[data-theme-choice]').forEach(b=>b.onclick=()=>{prefs.theme=b.dataset.themeChoice;applyAppearance(true)});
+const palette=categoryNames().length?categoryNames():['Feature','Improvement','Bug fix','Infrastructure','Security'];
+$('palettePreview').innerHTML=palette.map(c=>`<span style="${categoryStyle(c)}"><i class="dot"></i>${esc(c)}</span>`).join('');
 }
-function validateBackup(v){
-if(!v||!Array.isArray(v.columns)||!v.columns.length||!Array.isArray(v.rows))throw Error('Invalid workspace backup.');
-const ids=new Set(),labels=new Set(),used=new Set();
-v.columns.forEach(c=>{
-if(!c||typeof c.id!=='string'||!c.id||['_id','__proto__','prototype','constructor'].includes(c.id)||ids.has(c.id)||typeof c.label!=='string'||!c.label.trim()||labels.has(c.label.toLowerCase())||!['text','longtext','date','number','select'].includes(c.type)||c.role&&!Object.hasOwn(roleLabels,c.role)||c.options&&(!Array.isArray(c.options)||c.options.some(x=>typeof x!=='string')))throw Error('Invalid or duplicate column configuration.');
-ids.add(c.id);labels.add(c.label.toLowerCase());if(c.role&&c.role!=='none'){if(used.has(c.role))throw Error('Duplicate dashboard role.');used.add(c.role)}
-});
-if(!v.columns.some(c=>c.visible!==false))throw Error('Backup needs a visible column.');
-const rowIds=new Set();v.rows.forEach(r=>{if(!r||typeof r!=='object'||Array.isArray(r))throw Error('Invalid item in backup.');for(const c of v.columns)if(r[c.id]!=null&&!['string','number','boolean'].includes(typeof r[c.id]))throw Error('Invalid cell value.');if(typeof r._id!=='string'||rowIds.has(r._id))r._id=uid();rowIds.add(r._id)});
+function applyAppearance(save=false){
+const root=document.documentElement;root.dataset.theme=prefs.theme;root.dataset.style=prefs.style;root.dataset.density=prefs.density;root.dataset.zebra=String(prefs.zebra);root.dataset.wrap=String(prefs.wrap);
+$('headerSection').classList.toggle('hidden',!prefs.header);$('headerBtn').textContent=prefs.header?'⌃ Hide header':'⌄ Show header';$('headerBtn').setAttribute('aria-expanded',String(prefs.header));
+$('summarySection').open=prefs.summary;$('chartsSection').open=prefs.charts;if(!focusMode)$('filterSection').open=prefs.filters;
+syncAppearanceControls();if(save)persistPrefs();render();
 }
+function openAppearance(){syncAppearanceControls();$('appearanceDialog').showModal()}
+function setFocus(active,native=true){
+if(active===focusMode)return;focusMode=active;document.body.classList.toggle('focus-mode',active);$('focusBtn').textContent=active?'⤢ Exit full screen':'⛶ Full screen';$('focusBtn').setAttribute('aria-pressed',String(active));
+if(active){filterBeforeFocus=$('filterSection').open;$('filterSection').open=false;if(native&&document.documentElement.requestFullscreen)try{const p=document.documentElement.requestFullscreen();p?.catch(()=>{})}catch{}}
+else{$('filterSection').open=filterBeforeFocus;if(document.fullscreenElement&&document.exitFullscreen)try{const p=document.exitFullscreen();p?.catch(()=>{})}catch{}}
+$('focusBtn').focus();
+}
+document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&focusMode)setFocus(false,false)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&focusMode&&!document.querySelector('dialog[open]')){e.preventDefault();setFocus(false,false)}});
 function guessRole(s){
 const t=String(s).toLowerCase().replace(/[^a-z0-9]/g,'');
+if(['id','releaseid','uniqueid','recordid'].includes(t))return 'id';if(t.includes('comment')||t==='notes')return 'comments';if(t.includes('category')||t==='releasetype')return 'category';
 if(t.includes('uat'))return 'uat';if(t.includes('tcoe'))return 'tcoe';if(t.includes('ops')||t.includes('operation'))return 'ops';
-if(t.includes('jira'))return 'jira';if(t.includes('description')||t==='details')return 'description';if(t.includes('priority'))return 'priority';if(t.includes('severity'))return 'severity';if(t.includes('team'))return 'team';
-if(t.includes('date'))return 'date';if(t.includes('title')||t==='name'||t==='release')return 'title';return 'none';
+if(t.includes('jira'))return 'jira';if(t.includes('description')||t==='details')return 'description';if(t.includes('priority'))return 'priority';if(t.includes('severity'))return 'severity';if(t.includes('team'))return 'team';if(t.includes('date'))return 'date';if(t.includes('title')||t==='name'||t==='release')return 'title';return 'none';
 }
 function parseCSV(text){
 text=text.replace(/^\uFEFF/,'');const first=text.split(/\r?\n/,1)[0],delim=first.split('\t').length>first.split(',').length?'\t':first.split(';').length>first.split(',').length?';':',';
 let rows=[],row=[],cell='',quoted=false;
-for(let i=0;i<text.length;i++){const c=text[i];if(c==='"'){if(quoted&&text[i+1]==='"'){cell+='"';i++}else if(quoted||cell==='')quoted=!quoted;else cell+=c}
-else if(c===delim&&!quoted){row.push(cell);cell=''}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);rows.push(row);row=[];cell=''}else cell+=c}
+for(let i=0;i<text.length;i++){const c=text[i];if(c==='"'){if(quoted&&text[i+1]==='"'){cell+='"';i++}else if(quoted||cell==='')quoted=!quoted;else cell+=c}else if(c===delim&&!quoted){row.push(cell);cell=''}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);rows.push(row);row=[];cell=''}else cell+=c}
 if(quoted)throw Error('CSV contains an unclosed quoted value.');if(cell||row.length){row.push(cell);rows.push(row)}return rows;
 }
 async function readFile(file){
-if(!file)return;
-$('importError').textContent='';$('applyImport').disabled=true;$('importSetup').classList.add('hidden');imported=null;
+if(!file)return;$('importError').textContent='';$('applyImport').disabled=true;$('importSetup').classList.add('hidden');imported=null;
 try{
-if(file.size>30*1024*1024)throw Error('Import a workbook smaller than 30 MB.');
+if(file.size>30*1024*1024)throw Error('Choose a workbook smaller than 30 MB.');
 if(/\.json$/i.test(file.name)){
 const backup=JSON.parse(await file.text());validateBackup(backup);
-if(confirm('Restore this backup and replace all current items and columns?')){
-state={columns:backup.columns,rows:backup.rows,source:backup.source||file.name};
+if(confirm('Restore this backup and replace current items and columns?')){
+state={columns:backup.columns,rows:backup.rows,source:backup.source||file.name};const generated=ensureSystem(state);ui.editable=false;
 if(backup.appearance){prefs=cleanPrefs(backup.appearance);applyAppearance(true)}
-resetUI();persist();$('importDialog').close();render();toast('Workspace restored');
+resetUI();persist();$('importDialog').close();render();toast('Workspace restored in read-only mode'+(generated?' · '+generated+' IDs generated':''));
 }return;
 }
 let sheets;if(/\.xlsx$/i.test(file.name))sheets=await readXLSX(await file.arrayBuffer());else if(/\.csv$/i.test(file.name))sheets=[{name:'CSV',rows:parseCSV(await file.text())}];else throw Error('Choose .xlsx, .csv, or a Release Desk .json backup.');
-if(!sheets.length)throw Error('No worksheets were found.');
-imported={name:file.name,sheets,mapping:[],headers:[]};$('sheetSelect').innerHTML=sheets.map((s,i)=>`<option value="${i}">${esc(s.name)}</option>`).join('');$('headerRow').value=1;$('importSetup').classList.remove('hidden');buildMapping();
-}catch(e){$('importError').textContent=e.message||'The file could not be read.'}
-finally{$('fileInput').value=''}
+if(!sheets.length)throw Error('No worksheets found.');imported={name:file.name,sheets,mapping:[],headers:[]};
+$('sheetSelect').innerHTML=sheets.map((s,i)=>`<option value="${i}">${esc(s.name)}</option>`).join('');$('headerRow').value=1;$('importSetup').classList.remove('hidden');buildMapping();
+}catch(e){$('importError').textContent=e.message||'Unable to read this file.'}finally{$('fileInput').value=''}
 }
 function buildMapping(){
 try{
@@ -609,79 +529,72 @@ $('importCount').textContent=rows.slice(header+1).filter(r=>r.some(v=>v!==''&&v!
 }
 $('applyImport').onclick=()=>{
 try{
-if(!imported)return;
-const destinations=imported.mapping.filter(x=>!['__ignore','__new'].includes(x));if(new Set(destinations).size!==destinations.length)throw Error('Map each dashboard field only once.');
-if(imported.mapping.every(x=>x==='__ignore'))throw Error('Map at least one source column.');
+if(!imported)return;const targets=imported.mapping.filter(x=>!['__ignore','__new'].includes(x));
+if(new Set(targets).size!==targets.length)throw Error('Map each dashboard field only once.');if(imported.mapping.every(x=>x==='__ignore'))throw Error('Map at least one column.');
 let columns=structuredClone(state.columns),map=[...imported.mapping],labels=new Set(columns.map(c=>c.label.toLowerCase()));
-map.forEach((m,i)=>{if(m==='__new'){let label=imported.headers[i],n=2;while(labels.has(label.toLowerCase())){label=imported.headers[i]+' ('+n+')';n++}labels.add(label.toLowerCase());let role=guessRole(label);if(columns.some(c=>c.role===role))role='none';const id='c_'+uid();columns.push({id,label,type:role==='date'?'date':'text',role,options:[],visible:true});map[i]=id}});
+map.forEach((m,i)=>{if(m==='__new'){let label=imported.headers[i],n=2;while(labels.has(label.toLowerCase())){label=imported.headers[i]+' ('+n+')';n++}labels.add(label.toLowerCase());let role=guessRole(label);if(columns.some(c=>c.role===role))role='none';const id='c_'+uid();columns.push({id,label,type:role==='date'?'date':role==='comments'?'longtext':'text',role,options:[],visible:true});map[i]=id}});
 const data=imported.sheets[+$('sheetSelect').value].rows.slice(Number($('headerRow').value)).filter(r=>r.some(v=>v!==''&&v!=null));if(!data.length)throw Error('No data rows to import.');
 const rows=data.map(src=>{const r={_id:uid()};columns.forEach(c=>r[c.id]='');map.forEach((m,i)=>{if(m!=='__ignore')r[m]=normalizeValue(src[i]??'',columns.find(c=>c.id===m))});return r});
-if(!confirm(`Replace ${state.rows.length} current releases with ${rows.length} imported items? Export a JSON backup first if needed.`))return;
-state={columns,rows,source:imported.name+' · '+imported.sheets[+$('sheetSelect').value].name};resetUI();persist();$('importDialog').close();render();toast(rows.length+' releases imported');
+const next={columns,rows,source:imported.name+' · '+imported.sheets[+$('sheetSelect').value].name},generated=ensureSystem(next);
+if(!confirm(`Replace ${state.rows.length} current releases with ${rows.length} imported items? ${generated} missing or duplicate IDs will be generated. Export a backup first if needed.`))return;
+state=next;ui.editable=false;resetUI();persist();$('importDialog').close();render();toast(rows.length+' releases imported · '+generated+' IDs generated · Read-only mode');
 }catch(e){$('importError').textContent=e.message}
 };
 const encoder=new TextEncoder(),decoder=new TextDecoder();
-function xml(text){const doc=new DOMParser().parseFromString(text,'application/xml');if(doc.getElementsByTagName('parsererror').length)throw Error('Workbook contains invalid XML.');return doc}
-const nodes=(root,name)=>Array.from(root.getElementsByTagNameNS('*',name));
-const textNodes=root=>nodes(root,'t').map(n=>n.textContent).join('');
+function xml(s){const d=new DOMParser().parseFromString(s,'application/xml');if(d.getElementsByTagName('parsererror').length)throw Error('Workbook contains invalid XML.');return d}
+const nodes=(r,n)=>Array.from(r.getElementsByTagNameNS('*',n));
+const textNodes=r=>nodes(r,'t').map(n=>n.textContent).join('');
 async function unzip(buffer){
 const b=new Uint8Array(buffer),v=new DataView(buffer);let end=-1;
 for(let i=b.length-22;i>=Math.max(0,b.length-65557);i--)if(v.getUint32(i,true)===0x06054b50){end=i;break}
-if(end<0)throw Error('This is not a valid .xlsx workbook.');
-if(v.getUint16(end+4,true)||v.getUint16(end+6,true))throw Error('Multi-volume archives are unsupported.');
-const count=v.getUint16(end+10,true);let p=v.getUint32(end+16,true),files=new Map(),total=0;
+if(end<0)throw Error('This is not a valid .xlsx workbook.');if(v.getUint16(end+4,true)||v.getUint16(end+6,true))throw Error('Multi-volume archives are unsupported.');
+const count=v.getUint16(end+10,true);let p=v.getUint32(end+16,true),total=0;const files=new Map();
 if(count===65535||p===0xffffffff)throw Error('ZIP64 workbooks are unsupported.');
 for(let i=0;i<count;i++){
 if(v.getUint32(p,true)!==0x02014b50)throw Error('Workbook archive directory is invalid.');
 const flags=v.getUint16(p+8,true),method=v.getUint16(p+10,true),size=v.getUint32(p+20,true),raw=v.getUint32(p+24,true),nl=v.getUint16(p+28,true),el=v.getUint16(p+30,true),cl=v.getUint16(p+32,true),offset=v.getUint32(p+42,true),name=decoder.decode(b.slice(p+46,p+46+nl));
-total+=raw;if(total>100*1024*1024)throw Error('Expanded workbook is too large. Import a smaller workbook.');if(flags&1)throw Error('Password-protected workbooks are unsupported.');
+total+=raw;if(total>100*1024*1024)throw Error('Expanded workbook is too large.');if(flags&1)throw Error('Password-protected workbooks are unsupported.');
 files.set(name,{method,size,raw,offset});p+=46+nl+el+cl;
 }
 return async name=>{
 const f=files.get(name);if(!f)return null;const p=f.offset;if(v.getUint32(p,true)!==0x04034b50)throw Error('Invalid workbook archive.');
-const start=p+30+v.getUint16(p+26,true)+v.getUint16(p+28,true),compressed=b.slice(start,start+f.size);let out;
-if(f.method===0)out=compressed;else if(f.method===8){
-let stream;try{stream=new DecompressionStream('deflate-raw')}catch{throw Error('Excel import requires a current browser supporting deflate-raw decompression. You can also import CSV.')}
-out=new Uint8Array(await new Response(new Blob([compressed]).stream().pipeThrough(stream)).arrayBuffer());
-}else throw Error('Unsupported workbook compression.');
+const start=p+30+v.getUint16(p+26,true)+v.getUint16(p+28,true),bytes=b.slice(start,start+f.size);let out;
+if(f.method===0)out=bytes;else if(f.method===8){let stream;try{stream=new DecompressionStream('deflate-raw')}catch{throw Error('Excel import needs a browser supporting deflate-raw decompression. You can also import CSV.')}out=new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(stream)).arrayBuffer())}else throw Error('Unsupported workbook compression.');
 if(out.length!==f.raw)throw Error('Workbook data is incomplete.');return decoder.decode(out);
 };
 }
 async function readXLSX(buffer){
-const read=await unzip(buffer),wbText=await read('xl/workbook.xml'),relsText=await read('xl/_rels/workbook.xml.rels');
-if(!wbText||!relsText)throw Error('Unsupported workbook structure.');
-const wb=xml(wbText),rels=xml(relsText),paths=new Map();
-nodes(rels,'Relationship').forEach(r=>{if(r.getAttribute('TargetMode')==='External')return;const target=r.getAttribute('Target')||'',parts=(target.startsWith('/')?target.slice(1):'xl/'+target).split('/'),out=[];parts.forEach(p=>{if(p==='..')out.pop();else if(p&&p!=='.')out.push(p)});paths.set(r.getAttribute('Id'),out.join('/'))});
-const sharedText=await read('xl/sharedStrings.xml'),shared=sharedText?nodes(xml(sharedText),'si').map(textNodes):[];
-const stylesText=await read('xl/styles.xml');let dateStyles=new Set();
-if(stylesText){const styles=xml(stylesText),custom=new Map(nodes(styles,'numFmt').map(n=>[+n.getAttribute('numFmtId'),n.getAttribute('formatCode')||''])),xfs=nodes(styles,'cellXfs')[0];
-if(xfs)Array.from(xfs.children).forEach((n,i)=>{const id=+n.getAttribute('numFmtId'),fmt=(custom.get(id)||'').replace(/"[^"]*"|\[[^\]]*\]|\\./g,'');if(id>=14&&id<=22||id>=45&&id<=47||/[dy]/i.test(fmt))dateStyles.add(i)})}
+const read=await unzip(buffer),wbText=await read('xl/workbook.xml'),relText=await read('xl/_rels/workbook.xml.rels');
+if(!wbText||!relText)throw Error('Unsupported workbook structure.');
+const wb=xml(wbText),paths=new Map();
+nodes(xml(relText),'Relationship').forEach(r=>{if(r.getAttribute('TargetMode')==='External')return;const t=r.getAttribute('Target')||'',out=[];(t.startsWith('/')?t.slice(1):'xl/'+t).split('/').forEach(p=>{if(p==='..')out.pop();else if(p&&p!=='.')out.push(p)});paths.set(r.getAttribute('Id'),out.join('/'))});
+const sharedText=await read('xl/sharedStrings.xml'),shared=sharedText?nodes(xml(sharedText),'si').map(textNodes):[],styleText=await read('xl/styles.xml'),dateStyles=new Set();
+if(styleText){const s=xml(styleText),custom=new Map(nodes(s,'numFmt').map(n=>[+n.getAttribute('numFmtId'),n.getAttribute('formatCode')||''])),xfs=nodes(s,'cellXfs')[0];if(xfs)Array.from(xfs.children).forEach((n,i)=>{const id=+n.getAttribute('numFmtId'),fmt=(custom.get(id)||'').replace(/"[^"]*"|\[[^\]]*\]|\\./g,'');if(id>=14&&id<=22||id>=45&&id<=47||/[dy]/i.test(fmt))dateStyles.add(i)})}
 const date1904=nodes(wb,'workbookPr').some(n=>['1','true'].includes(n.getAttribute('date1904'))),result=[];
-for(const sheet of nodes(wb,'sheet')){
-const id=sheet.getAttributeNS('http://schemas.openxmlformats.org/officeDocument/2006/relationships','id')||sheet.getAttribute('r:id'),path=paths.get(id);if(!path||!path.includes('worksheets/'))continue;
-const source=await read(path);if(!source)continue;const doc=xml(source),rows=[];
-for(const row of nodes(doc,'row')){
-const ri=+(row.getAttribute('r')||rows.length+1)-1;if(ri>200000)throw Error('Limit imports to 200,000 worksheet rows.');
+for(const sh of nodes(wb,'sheet')){
+const id=sh.getAttributeNS('http://schemas.openxmlformats.org/officeDocument/2006/relationships','id')||sh.getAttribute('r:id'),path=paths.get(id);if(!path||!path.includes('worksheets/'))continue;
+const source=await read(path);if(!source)continue;const rows=[];
+for(const row of nodes(xml(source),'row')){
+const ri=+(row.getAttribute('r')||rows.length+1)-1;if(ri<0||ri>200000)throw Error('Limit imports to 200,000 worksheet rows.');
 const cells=[];let next=0;
 for(const c of nodes(row,'c')){
-const ref=c.getAttribute('r')||'',letters=ref.match(/^[A-Z]+/i)?.[0];let index=next;if(letters){index=0;for(const ch of letters.toUpperCase())index=index*26+ch.charCodeAt(0)-64;index--}next=index+1;if(index>=300)continue;
-const type=c.getAttribute('t'),raw=nodes(c,'v')[0]?.textContent??'';let v=type==='s'?(shared[+raw]??''):type==='inlineStr'?textNodes(c):type==='b'?(raw==='1'?'Yes':'No'):raw;
-if(raw!==''&&!type&&dateStyles.has(+(c.getAttribute('s')||0))){const n=Number(raw),epoch=date1904?Date.UTC(1904,0,1):(n<60?Date.UTC(1899,11,31):Date.UTC(1899,11,30));if(Number.isFinite(n))v=new Date(epoch+Math.floor(n)*86400000).toISOString().slice(0,10)}
+const letters=(c.getAttribute('r')||'').match(/^[A-Z]+/i)?.[0];let index=next;
+if(letters){index=0;for(const ch of letters.toUpperCase())index=index*26+ch.charCodeAt(0)-64;index--}next=index+1;
+const type=c.getAttribute('t'),raw=nodes(c,'v')[0]?.textContent??'';if(index>=300){if(raw||textNodes(c))throw Error('Use a worksheet with 300 columns or fewer.');continue}
+let v=type==='s'?(shared[+raw]??''):type==='inlineStr'?textNodes(c):type==='b'?(raw==='1'?'Yes':'No'):raw;
+if(raw!==''&&(!type||type==='n')&&dateStyles.has(+(c.getAttribute('s')||0))){const n=Number(raw),epoch=date1904?Date.UTC(1904,0,1):(n<60?Date.UTC(1899,11,31):Date.UTC(1899,11,30));if(Number.isFinite(n))v=new Date(epoch+Math.floor(n)*86400000).toISOString().slice(0,10)}
 cells[index]=v;
 }rows[ri]=cells;
-}result.push({name:sheet.getAttribute('name')||'Sheet',rows:Array.from({length:rows.length},(_,i)=>rows[i]||[])});
+}result.push({name:sh.getAttribute('name')||'Sheet',rows:Array.from({length:rows.length},(_,i)=>rows[i]||[])});
 }return result;
 }
-function download(data,name,type){
-const url=URL.createObjectURL(data instanceof Blob?data:new Blob([data],{type:type||'application/octet-stream'})),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
-}
+function download(data,name,type){const url=URL.createObjectURL(data instanceof Blob?data:new Blob([data],{type:type||'application/octet-stream'})),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000)}
 const xmlEsc=s=>String(s??'').replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g,'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));
 const crcTable=Array.from({length:256},(_,n)=>{for(let k=0;k<8;k++)n=n&1?0xedb88320^(n>>>1):n>>>1;return n>>>0});
-function crc32(bytes){let c=0xffffffff;for(const b of bytes)c=crcTable[(c^b)&255]^(c>>>8);return (c^0xffffffff)>>>0}
+function crc32(b){let c=0xffffffff;for(const n of b)c=crcTable[(c^n)&255]^(c>>>8);return (c^0xffffffff)>>>0}
 function zip(files){
 const chunks=[],central=[];let offset=0;
-for(const [name,source]of files){
-const n=encoder.encode(name),data=encoder.encode(source),crc=crc32(data),local=new Uint8Array(30+n.length),lv=new DataView(local.buffer);
+for(const [name,text]of files){const n=encoder.encode(name),data=encoder.encode(text),crc=crc32(data),local=new Uint8Array(30+n.length),lv=new DataView(local.buffer);
 lv.setUint32(0,0x04034b50,true);lv.setUint16(4,20,true);lv.setUint16(6,0x800,true);lv.setUint16(12,33,true);lv.setUint32(14,crc,true);lv.setUint32(18,data.length,true);lv.setUint32(22,data.length,true);lv.setUint16(26,n.length,true);local.set(n,30);chunks.push(local,data);
 const cd=new Uint8Array(46+n.length),cv=new DataView(cd.buffer);
 cv.setUint32(0,0x02014b50,true);cv.setUint16(4,20,true);cv.setUint16(6,20,true);cv.setUint16(8,0x800,true);cv.setUint16(14,33,true);cv.setUint32(16,crc,true);cv.setUint32(20,data.length,true);cv.setUint32(24,data.length,true);cv.setUint16(28,n.length,true);cv.setUint32(42,offset,true);cd.set(n,46);central.push(cd);offset+=local.length+data.length;
@@ -690,10 +603,10 @@ const size=central.reduce((s,c)=>s+c.length,0),end=new Uint8Array(22),ev=new Dat
 ev.setUint32(0,0x06054b50,true);ev.setUint16(8,files.length,true);ev.setUint16(10,files.length,true);ev.setUint32(12,size,true);ev.setUint32(16,offset,true);
 return new Blob([...chunks,...central,end],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
 }
-function letter(n){let out='';for(n++;n>0;n=Math.floor((n-1)/26))out=String.fromCharCode(65+(n-1)%26)+out;return out}
+function letter(n){let s='';for(n++;n>0;n=Math.floor((n-1)/26))s=String.fromCharCode(65+(n-1)%26)+s;return s}
 function makeXLSX(columns,rows){
 const matrix=[columns.map(c=>c.label),...rows.map(r=>columns.map(c=>r[c.id]??''))];
-const sheet=`<?xml version="1.0" encoding="UTF-8"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><cols>${columns.map((c,i)=>`<col min="${i+1}" max="${i+1}" width="${c.type==='longtext'?50:c.role==='title'?35:22}" customWidth="1"/>`).join('')}</cols><sheetData>${matrix.map((r,ri)=>`<row r="${ri+1}">${r.map((v,ci)=>`<c r="${letter(ci)}${ri+1}" t="inlineStr"><is><t xml:space="preserve">${xmlEsc(v)}</t></is></c>`).join('')}</row>`).join('')}</sheetData><autoFilter ref="A1:${letter(columns.length-1)}${matrix.length}"/></worksheet>`;
+const sheet=`<?xml version="1.0" encoding="UTF-8"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><cols>${columns.map((c,i)=>`<col min="${i+1}" max="${i+1}" width="${['description','comments'].includes(c.role)?55:c.role==='title'?40:23}" customWidth="1"/>`).join('')}</cols><sheetData>${matrix.map((r,ri)=>`<row r="${ri+1}">${r.map((v,ci)=>`<c r="${letter(ci)}${ri+1}" t="inlineStr"><is><t xml:space="preserve">${xmlEsc(v)}</t></is></c>`).join('')}</row>`).join('')}</sheetData><autoFilter ref="A1:${letter(columns.length-1)}${matrix.length}"/></worksheet>`;
 return zip([
 ['[Content_Types].xml','<?xml version="1.0"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/></Types>'],
 ['_rels/.rels','<?xml version="1.0"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>'],
@@ -704,93 +617,62 @@ return zip([
 }
 function exportData(format){
 const rows=$('exportScope').value==='all'?state.rows:filtered(),name='releases-'+isoLocal(new Date());
-if(format==='json'){download(JSON.stringify({version:2,...state,appearance:prefs},null,2),name+'-backup.json','application/json');return}
+if(format==='json'){download(JSON.stringify({version:4,...state,appearance:prefs},null,2),name+'-backup.json','application/json');return}
 if(format==='xlsx'){download(makeXLSX(state.columns,rows),name+'.xlsx');return}
 const safe=v=>{let s=String(v??'');if(/^[\s]*[=+\-@\t\r]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"'};
 download('\uFEFF'+[state.columns.map(c=>safe(c.label)).join(','),...rows.map(r=>state.columns.map(c=>safe(r[c.id])).join(','))].join('\r\n'),name+'.csv','text/csv;charset=utf-8');
 }
-function svgString(id){return new XMLSerializer().serializeToString($(id).querySelector('svg'))}
 async function exportChart(id,png=false){
 try{
-const svg=svgString(id),name=id+'-'+isoLocal(new Date());if(!png){download(svg,name+'.svg','image/svg+xml');return}
+const svg=new XMLSerializer().serializeToString($(id).querySelector('svg')),name=id+'-'+isoLocal(new Date());if(!png){download(svg,name+'.svg','image/svg+xml');return}
 const url=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml'})),img=new Image();
-try{
-await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;img.src=url});
-const canvas=document.createElement('canvas');canvas.width=1620;canvas.height=570;const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0,canvas.width,canvas.height);
-const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));if(!blob)throw Error('No image');download(blob,name+'.png');
-}finally{URL.revokeObjectURL(url)}
-}catch{toast('Chart export failed. Try downloading SVG instead.')}
+try{await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;img.src=url});const canvas=document.createElement('canvas');canvas.width=1620;canvas.height=570;canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));if(!blob)throw Error();download(blob,name+'.png')}finally{URL.revokeObjectURL(url)}
+}catch{toast('Chart export failed. Try SVG instead.')}
 }
 function openImport(){$('importError').textContent='';$('importDialog').showModal()}
 function openExport(){$('exportDialog').showModal()}
-$('appearanceBtn').onclick=openAppearance;$('focusAppearance').onclick=openAppearance;
-$('headerBtn').onclick=()=>{prefs.header=!prefs.header;applyAppearance(true)};
-$('focusBtn').onclick=()=>setFocus(!focusMode);
-$('focusMore').onclick=()=>$('toolsDialog').showModal();
-$('toolsImport').onclick=()=>{$('toolsDialog').close();openImport()};
-$('toolsExport').onclick=()=>{$('toolsDialog').close();openExport()};
-$('toolsColumns').onclick=()=>{$('toolsDialog').close();openColumns()};
-$('toolsAppearance').onclick=()=>{$('toolsDialog').close();openAppearance()};
+$('modeSelect').onchange=e=>{ui.editable=e.target.value==='editable';render();toast(ui.editable?'Editing enabled. IDs remain fixed.':'Read-only enabled. Comments remain editable.')};
+$('appearanceBtn').onclick=openAppearance;$('focusAppearance').onclick=openAppearance;$('headerBtn').onclick=()=>{prefs.header=!prefs.header;applyAppearance(true)};$('focusBtn').onclick=()=>setFocus(!focusMode);$('focusMore').onclick=()=>$('toolsDialog').showModal();
+for(const [id,fn]of [['toolsImport',openImport],['toolsExport',openExport],['toolsColumns',openColumns],['toolsAppearance',openAppearance]])$(id).onclick=()=>{$('toolsDialog').close();fn()};
 for(const [id,key]of [['styleSelect','style'],['densitySelect','density']])$(id).onchange=e=>{prefs[key]=e.target.value;applyAppearance(true)};
 for(const [id,key]of [['zebraToggle','zebra'],['wrapToggle','wrap'],['headerToggle','header'],['summaryToggle','summary'],['chartsToggle','charts'],['filtersToggle','filters']])$(id).onchange=e=>{prefs[key]=e.target.checked;if(key==='filters'&&focusMode){filterBeforeFocus=prefs.filters;$('filterSection').open=prefs.filters}applyAppearance(true)};
-$('resetAppearance').onclick=()=>{prefs={...defaultPrefs};filterBeforeFocus=true;if(focusMode)$('filterSection').open=true;applyAppearance(true);toast('Appearance reset')};
-for(const [id,key]of [['summarySection','summary'],['chartsSection','charts'],['filterSection','filters']]){
-$(id).addEventListener('toggle',()=>{
-if(applyingPrefs)return;
-if(key==='filters'&&focusMode){syncAppearanceControls();return}
-if(prefs[key]!==$(id).open){prefs[key]=$(id).open;persistPrefs()}
-syncAppearanceControls();
-});
-}
+$('resetAppearance').onclick=()=>{prefs={...defaults};filterBeforeFocus=true;if(focusMode)$('filterSection').open=true;applyAppearance(true)};
+for(const [id,key]of [['summarySection','summary'],['chartsSection','charts'],['filterSection','filters']])$(id).addEventListener('toggle',()=>{if(printState||key==='filters'&&focusMode)return;const open=$(id).open;if(prefs[key]!==open){prefs[key]=open;persistPrefs()}});
 $('columnsBtn').onclick=openColumns;$('exportBtn').onclick=openExport;$('importBtn').onclick=openImport;
-$('addColumn').onclick=()=>{draft.push({id:'c_'+uid(),label:'New field '+(draft.length+1),type:'text',role:'none',options:[],visible:true});renderColumns()};
+$('addColumn').onclick=()=>{if(!ui.editable)return;draft.push({id:'c_'+uid(),label:'New field '+(draft.length+1),type:'text',role:'none',options:[],visible:true});renderColumns()};
 document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>$(b.dataset.close).close());
 document.querySelectorAll('[data-export]').forEach(b=>b.onclick=()=>{try{exportData(b.dataset.export)}catch(e){toast('Export failed: '+e.message)}});
 document.querySelectorAll('[data-svg]').forEach(b=>b.onclick=()=>exportChart(b.dataset.svg));
 document.querySelectorAll('[data-png]').forEach(b=>b.onclick=()=>exportChart(b.dataset.png,true));
 document.querySelectorAll('[data-chart]').forEach(b=>b.onclick=()=>exportChart(b.dataset.chart));
-$('newBtn').onclick=()=>{const r={_id:uid()};state.columns.forEach(c=>r[c.id]='');if(col('date'))r[col('date').id]=isoLocal(new Date());if(col('title'))r[col('title').id]='Untitled release';state.rows.unshift(r);resetUI();ui.current=r._id;ui.view='form';persist();render()};
+$('newBtn').onclick=()=>{if(!ui.editable)return;const r={_id:uid()};state.columns.forEach(c=>r[c.id]='');if(col('date'))r[col('date').id]=isoLocal(new Date());if(col('title'))r[col('title').id]='Untitled release';state.rows.unshift(r);ensureSystem(state);resetUI();ui.current=r._id;ui.view='form';persist();render()};
 $('search').oninput=e=>{ui.search=e.target.value;ui.page=0;clearTimeout(searchTimer);searchTimer=setTimeout(render,120)};
-$('teamFilter').onchange=e=>{ui.team=e.target.value;ui.page=0;render()};
-$('priorityFilter').onchange=e=>{ui.priority=e.target.value;ui.page=0;render()};
-$('readyFilter').onchange=e=>{ui.ready=e.target.value;ui.page=0;render()};
+$('teamFilter').onchange=e=>{ui.team=e.target.value;ui.page=0;render()};$('categoryFilter').onchange=e=>{ui.category=e.target.value;ui.page=0;render()};$('readyFilter').onchange=e=>{ui.ready=e.target.value;ui.page=0;render()};
+function dateChanged(){
+const from=$('dateFrom').value,to=$('dateTo').value;$('dateFrom').setCustomValidity('');$('dateTo').setCustomValidity('');
+if(from&&to&&from>to){$('dateTo').setCustomValidity('The end date must be on or after the start date.');$('dateTo').reportValidity();return}
+ui.from=from;ui.to=to;ui.page=0;render();
+}
+$('dateFrom').onchange=dateChanged;$('dateTo').onchange=dateChanged;
 $('resetBtn').onclick=()=>{resetUI();render()};
 $('advancedBtn').onclick=()=>$('advanced').classList.toggle('hidden');
 $('addFilter').onclick=()=>{ui.filters.push({id:state.columns[0].id,op:'contains',value:''});renderFilters();render()};
-$('gridBtn').onclick=()=>{ui.view='grid';render()};
-$('formBtn').onclick=()=>{ui.view='form';render()};
-$('pageSize').onchange=e=>{ui.size=+e.target.value;ui.page=0;render()};
-$('prevPage').onclick=()=>{ui.page--;render()};$('nextPage').onclick=()=>{ui.page++;render()};
-$('fileInput').onchange=e=>readFile(e.target.files[0]);
-$('dropZone').ondragover=e=>{e.preventDefault();$('dropZone').style.borderColor='var(--accent)'};
-$('dropZone').ondragleave=()=>$('dropZone').style.borderColor='';
-$('dropZone').ondrop=e=>{e.preventDefault();$('dropZone').style.borderColor='';readFile(e.dataTransfer.files[0])};
-$('dropZone').onclick=e=>{if(e.target!==$('fileInput'))$('fileInput').click()};
+$('gridBtn').onclick=()=>{ui.view='grid';render()};$('formBtn').onclick=()=>{ui.view='form';render()};
+$('pageSize').onchange=e=>{ui.size=+e.target.value;ui.page=0;render()};$('prevPage').onclick=()=>{ui.page--;render()};$('nextPage').onclick=()=>{ui.page++;render()};
+$('fileInput').onchange=e=>readFile(e.target.files[0]);$('dropZone').ondragover=e=>{e.preventDefault();$('dropZone').style.borderColor='var(--accent)'};$('dropZone').ondragleave=()=>$('dropZone').style.borderColor='';
+$('dropZone').ondrop=e=>{e.preventDefault();$('dropZone').style.borderColor='';readFile(e.dataTransfer.files[0])};$('dropZone').onclick=e=>{if(e.target!==$('fileInput'))$('fileInput').click()};
 $('sheetSelect').onchange=buildMapping;$('headerRow').onchange=buildMapping;
-$('templateBtn').onclick=()=>{download(makeXLSX(state.columns,[]),'release-template.xlsx');toast('Template uses the current column configuration')};
-let printState=null;
+$('templateBtn').onclick=()=>{download(makeXLSX(state.columns,[]),'release-template.xlsx');toast('Leave ID blank to generate unique IDs on import.')};
 function preparePrint(){
 if(printState)return;
-printState={view:ui.view,summary:$('summarySection').open,charts:$('chartsSection').open,theme:prefs.theme};
-$('summarySection').open=true;$('chartsSection').open=true;
-document.documentElement.dataset.theme='light';
-const css=getComputedStyle(document.documentElement),color=n=>css.getPropertyValue(n).trim();
-const rows=filtered(),counts={'Ready':0,'In progress':0,'At risk':0};rows.forEach(r=>counts[ready(r)]++);
-drawBars('readiness',Object.entries(counts),[color('--green'),color('--amber'),color('--red')],()=>{},color);
-const teams=new Map();rows.forEach(r=>{const k=value(r,'team')||'Unassigned';teams.set(k,(teams.get(k)||0)+1)});const entries=[...teams].sort((a,b)=>b[1]-a[1]).slice(0,7);drawBars('teams',entries,entries.map(()=>color('--accent')),()=>{},color);
-$('gridView').classList.remove('hidden');$('formView').classList.add('hidden');renderGrid(rows,true);
-$('printInfo').textContent='Release Desk · '+new Date().toLocaleString()+' · '+rows.length+' matching releases · Source: '+(state.source||'Workspace');
+printState={view:ui.view,summary:$('summarySection').open,charts:$('chartsSection').open,theme:prefs.theme};$('summarySection').open=true;$('chartsSection').open=true;document.documentElement.dataset.theme='light';renderOverview();
+$('gridView').classList.remove('hidden');$('formView').classList.add('hidden');renderGrid(filtered(),true);
+$('printInfo').textContent='Release Desk · '+new Date().toLocaleString()+' · '+filtered().length+' matching items · '+(state.source||'Workspace');
 }
-function finishPrint(){
-if(!printState)return;
-const old=printState;printState=null;ui.view=old.view;document.documentElement.dataset.theme=old.theme;
-$('summarySection').open=old.summary;$('chartsSection').open=old.charts;render();
-}
+function finishPrint(){if(!printState)return;const old=printState;ui.view=old.view;document.documentElement.dataset.theme=old.theme;$('summarySection').open=old.summary;$('chartsSection').open=old.charts;printState=null;render()}
 $('reportBtn').onclick=()=>{$('exportDialog').close();preparePrint();window.print();setTimeout(finishPrint,500)};
 window.addEventListener('beforeprint',preparePrint);window.addEventListener('afterprint',finishPrint);
-applyAppearance();
-$('saveState').textContent=storageWarning?'Export to retain changes':'✓ Browser workspace';
-if(storageWarning)toast(storageWarning);
+applyAppearance();persist();if(storageWarning)toast(storageWarning);
 </script>
 </body>
 </html>
